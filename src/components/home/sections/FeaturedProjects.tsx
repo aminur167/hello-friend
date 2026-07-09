@@ -1,5 +1,8 @@
 import { ArrowUpRight, MapPin } from "lucide-react";
-import { SectionHeader, ProjectVisual } from "./SectionHeader";
+import { SectionHeader } from "./SectionHeader";
+import img1 from "@/assets/projects/14-29-49.jpg.asset.json";
+import img2 from "@/assets/projects/14-29-53.jpg.asset.json";
+import img3 from "@/assets/projects/14.29.51.jpg.asset.json";
 
 const projects = [
   {
@@ -7,24 +10,24 @@ const projects = [
     location: "Dhap, Rangpur",
     type: "Residential Tower",
     size: "1,650 – 2,400 sqft",
-    hue: 265,
     tag: "Signature",
+    image: img1.url,
   },
   {
     name: "Gold Crest Arcade",
     location: "Station Road",
     type: "Commercial",
     size: "Retail + Office",
-    hue: 82,
     tag: "Now Selling",
+    image: img2.url,
   },
   {
     name: "Greenline Homes",
     location: "Betpotti",
     type: "Boutique Residences",
     size: "1,200 – 1,800 sqft",
-    hue: 155,
     tag: "Featured",
+    image: img3.url,
   },
 ];
 
@@ -53,7 +56,18 @@ export function FeaturedProjects() {
               key={p.name}
               className="group relative overflow-hidden rounded-2xl border border-border bg-card shadow-card-soft transition-all hover:-translate-y-1 hover:shadow-elegant"
             >
-              <ProjectVisual hue={p.hue} label={p.tag} className="aspect-[4/3]" />
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <img
+                  src={p.image}
+                  alt={p.name}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                <span className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary backdrop-blur">
+                  {p.tag}
+                </span>
+              </div>
               <div className="p-6">
                 <div className="flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-brand-gold">
                   {p.type}
