@@ -19,16 +19,16 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const navH = scrolled ? 72 : 86;
+  const navH = scrolled ? 68 : 84;
 
   return (
     <div
       className="sticky top-0 z-50 w-full animate-fade-in"
       style={{
-        paddingTop: 0,
-        paddingBottom: scrolled ? 6 : 8,
-        marginTop: -6,
-        transition: "padding 380ms cubic-bezier(0.16,1,0.3,1)",
+        background: "#ffffff",
+        borderBottom: "1px solid rgba(16,43,122,0.08)",
+        boxShadow: scrolled ? "0 8px 24px -12px rgba(16,43,122,0.18)" : "0 2px 0 rgba(16,43,122,0.04)",
+        transition: "box-shadow 320ms ease",
       }}
     >
       <header
@@ -38,17 +38,9 @@ export function Navbar() {
           height: navH,
           marginInline: "clamp(12px, 3vw, 40px)",
           paddingInline: "clamp(18px, 2.6vw, 36px)",
-          borderRadius: 16,
           gridTemplateColumns: "1fr auto 1fr",
           columnGap: 24,
-          background: scrolled ? "rgba(11,25,60,0.58)" : "rgba(255,255,255,0.10)",
-          backdropFilter: scrolled ? "blur(30px) saturate(150%)" : "blur(20px) saturate(140%)",
-          border: "1px solid rgba(255,255,255,0.12)",
-          boxShadow: scrolled
-            ? "0 14px 44px rgba(0,0,0,0.28)"
-            : "0 10px 40px rgba(0,0,0,0.15)",
-          transition:
-            "height 380ms cubic-bezier(0.16,1,0.3,1), background 380ms ease, box-shadow 380ms ease, backdrop-filter 380ms ease",
+          transition: "height 320ms cubic-bezier(0.16,1,0.3,1)",
         }}
       >
         {/* LEFT — Logo */}
@@ -62,17 +54,17 @@ export function Navbar() {
             alt={`${siteConfig.name} logo`}
             className="object-contain nav-logo-img"
             style={{
-              height: scrolled ? 40 : 46,
-              width: scrolled ? 40 : 46,
-              transition: "height 380ms cubic-bezier(0.16,1,0.3,1), width 380ms cubic-bezier(0.16,1,0.3,1)",
+              height: scrolled ? 42 : 50,
+              width: scrolled ? 42 : 50,
+              transition: "height 320ms cubic-bezier(0.16,1,0.3,1), width 320ms cubic-bezier(0.16,1,0.3,1)",
             }}
           />
           <div className="hidden sm:flex flex-col leading-tight">
-            <span className="text-[15px] font-semibold tracking-wide text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.35)]">
+            <span className="text-[16px] font-bold tracking-wide" style={{ color: BRAND_BLUE }}>
               {siteConfig.shortName}
             </span>
             <span
-              className="text-[9.5px] uppercase tracking-[0.24em] font-medium"
+              className="text-[9.5px] uppercase tracking-[0.28em] font-semibold"
               style={{ color: BRAND_GOLD }}
             >
               Construction Ltd
@@ -84,14 +76,14 @@ export function Navbar() {
         <nav
           className="hidden lg:flex items-center justify-self-center"
           aria-label="Primary"
-          style={{ gap: 26 }}
+          style={{ gap: 30 }}
         >
           {siteConfig.nav.primary.map((item) => (
             <Link
               key={item.label}
               to={item.to}
-              className="nav-link relative text-[14px] text-white/95 transition-all"
-              style={{ fontFamily: BN_FONT, fontWeight: 600, letterSpacing: "0.2px" }}
+              className="nav-link relative text-[15px] transition-all"
+              style={{ fontFamily: BN_FONT, fontWeight: 600, letterSpacing: "0.2px", color: BRAND_BLUE }}
               activeOptions={{ exact: item.to === "/" }}
               activeProps={{ "data-active": "true" } as never}
             >
@@ -125,8 +117,8 @@ export function Navbar() {
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
-          className="lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-lg text-white justify-self-end col-start-3"
-          style={{ border: "1px solid rgba(255,255,255,0.2)", background: "rgba(255,255,255,0.06)" }}
+          className="lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-lg justify-self-end col-start-3"
+          style={{ border: "1px solid rgba(16,43,122,0.15)", background: "rgba(16,43,122,0.04)", color: BRAND_BLUE }}
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
