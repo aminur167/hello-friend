@@ -37,14 +37,14 @@ export const siteConfig = {
   },
   nav: {
     primary: [
-      { label: "Home", to: "/" },
-      { label: "About", to: "/about" },
-      { label: "Running Projects", to: "/projects/running" },
-      { label: "Upcoming Projects", to: "/projects" },
-      { label: "Flats", to: "/services" },
-      { label: "Land Share", to: "/services" },
-      { label: "Gallery", to: "/gallery" },
-      { label: "Contact", to: "/contact" },
+      { label: "হোম", to: "/" },
+      { label: "আমাদের সম্পর্কে", to: "/about" },
+      { label: "চলমান প্রকল্প", to: "/projects/running" },
+      { label: "আসন্ন প্রকল্প", to: "/projects" },
+      { label: "ফ্ল্যাট", to: "/services" },
+      { label: "জমি শেয়ার", to: "/services" },
+      { label: "গ্যালারি", to: "/gallery" },
+      { label: "যোগাযোগ", to: "/contact" },
     ],
     footerServices: [
       { label: "Residential Projects", to: "/services" },
