@@ -418,9 +418,6 @@
   text-transform: uppercase;
   color: var(--brand-gold);
 }
-@utility luxe-kicker::before,
-@utility luxe-kicker::after { content: none; }
-
 @utility luxe-section {
   padding-top: 5.5rem;
   padding-bottom: 5.5rem;
