@@ -21,10 +21,10 @@ function DashboardPage() {
   const conversionRate = all.length ? Math.round((converted.length / all.length) * 100) : 0;
 
   const stats = [
-    { label: "Total Leads", value: all.length, icon: Bell, delta: `${last7.length} this week`, tone: "primary" },
-    { label: "Bookings", value: bookings.length, icon: CalendarCheck, delta: "Reservations pipeline", tone: "brand-gold" },
-    { label: "Active Projects", value: projects.length, icon: Building2, delta: "Residential & commercial", tone: "brand-navy" },
-    { label: "Conversion Rate", value: `${conversionRate}%`, icon: TrendingUp, delta: `${converted.length} converted`, tone: "brand-green" },
+    { label: "Total Leads", value: all.length, icon: Bell, delta: `${last7.length} this week`, tone: "bg-primary/10 text-primary" },
+    { label: "Bookings", value: bookings.length, icon: CalendarCheck, delta: "Reservations pipeline", tone: "bg-brand-gold/15 text-brand-gold" },
+    { label: "Active Projects", value: projects.length, icon: Building2, delta: "Residential & commercial", tone: "bg-primary/15 text-primary" },
+    { label: "Conversion Rate", value: `${conversionRate}%`, icon: TrendingUp, delta: `${converted.length} converted`, tone: "bg-brand-green/15 text-brand-green" },
   ];
 
   const recent = all.slice(0, 6);
@@ -51,7 +51,7 @@ function DashboardPage() {
                 <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">{s.label}</div>
                 <div className="mt-3 text-3xl font-semibold text-foreground">{s.value}</div>
               </div>
-              <div className={cn("grid h-10 w-10 place-items-center rounded-xl", `bg-${s.tone}/10 text-${s.tone}`)}>
+              <div className={cn("grid h-10 w-10 place-items-center rounded-xl", s.tone)}>
                 <s.icon className="h-5 w-5" />
               </div>
             </div>
