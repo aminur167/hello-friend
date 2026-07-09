@@ -1,10 +1,13 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Menu, X, Phone } from "lucide-react";
-import { Container } from "./Container";
+import { Menu, X } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
 import brandLogo from "@/assets/brand-logo.png.asset.json";
+
+const NAV_INK = "#2E3440";
+const BRAND_BLUE = "#102B7A";
+const BRAND_GOLD = "#D4A017";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
@@ -20,66 +23,77 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full transition-all duration-300",
-        scrolled
-          ? "border-b border-border bg-background/85 backdrop-blur-md shadow-card-soft"
-          : "bg-transparent text-white",
+        "sticky top-0 z-50 w-full bg-white transition-shadow duration-300",
+        scrolled ? "shadow-[0_2px_16px_-6px_rgba(16,43,122,0.15)]" : "shadow-none",
       )}
     >
-      <Container className="flex h-16 items-center justify-between md:h-20">
-        {/* Brand */}
-        <Link to="/" className="flex items-center gap-2" aria-label={siteConfig.name}>
+      <div
+        className="mx-auto flex items-center justify-between"
+        style={{ maxWidth: 1400, height: 92, paddingInline: 40 }}
+      >
+        {/* LEFT — Logo */}
+        <Link
+          to="/"
+          aria-label={siteConfig.name}
+          className="flex items-center gap-3 animate-fade-in"
+          style={{ flex: "0 0 auto", minWidth: 0 }}
+        >
           <img
             src={brandLogo.url}
             alt={`${siteConfig.name} logo`}
-            className="h-11 w-11 object-contain"
-            width={44}
-            height={44}
+            className="h-12 w-12 object-contain md:h-14 md:w-14"
+            width={56}
+            height={56}
           />
           <div className="hidden sm:flex flex-col leading-tight">
-            <span className={cn(
-              "text-sm font-semibold tracking-wide transition-colors",
-              scrolled ? "text-foreground" : "text-white",
-            )}>
+            <span
+              className="text-[15px] font-semibold tracking-wide"
+              style={{ color: NAV_INK }}
+            >
               {siteConfig.shortName}
             </span>
-            <span className="text-[10px] uppercase tracking-[0.18em] text-brand-gold">
+            <span
+              className="text-[10px] uppercase tracking-[0.22em]"
+              style={{ color: BRAND_GOLD }}
+            >
               Construction Ltd
             </span>
           </div>
         </Link>
 
-        {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-8" aria-label="Primary">
+        {/* CENTER — Navigation */}
+        <nav
+          className="hidden lg:flex items-center justify-center"
+          aria-label="Primary"
+          style={{ gap: 34 }}
+        >
           {siteConfig.nav.primary.map((item) => (
             <Link
-              key={item.to}
+              key={item.label}
               to={item.to}
-              className={cn(
-                "text-sm font-medium transition-colors",
-                scrolled ? "text-foreground/80 hover:text-primary" : "text-white/85 hover:text-brand-gold",
-              )}
-              activeProps={{ className: scrolled ? "text-primary" : "text-brand-gold" }}
+              className="nav-link relative text-[13.5px] font-semibold tracking-wide transition-colors"
+              style={{ color: NAV_INK }}
+              activeOptions={{ exact: item.to === "/" }}
+              activeProps={{ "data-active": "true" } as never}
             >
               {item.label}
             </Link>
           ))}
         </nav>
 
-        {/* CTA */}
-        <div className="hidden md:flex items-center gap-3">
-          <a
-            href={`tel:${siteConfig.contact.phone}`}
-            className={cn(
-              "inline-flex items-center gap-2 rounded-md px-4 py-2 text-sm font-semibold shadow-elegant transition-all hover:-translate-y-0.5",
-              scrolled
-                ? "bg-primary text-primary-foreground"
-                : "bg-brand-gold text-brand-gold-foreground",
-            )}
+        {/* RIGHT — CTA */}
+        <div className="hidden lg:flex items-center" style={{ flex: "0 0 auto" }}>
+          <Link
+            to="/booking"
+            className="nav-cta inline-flex items-center justify-center rounded-full font-semibold text-[13.5px] tracking-wide transition-all duration-300"
+            style={{
+              backgroundColor: BRAND_GOLD,
+              color: BRAND_BLUE,
+              padding: "14px 34px",
+            }}
           >
-            <Phone className="h-4 w-4" />
-            Call Us
-          </a>
+            Book Now
+          </Link>
         </div>
 
         {/* Mobile toggle */}
@@ -88,39 +102,63 @@ export function Navbar() {
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
-          className={cn(
-            "md:hidden inline-flex h-10 w-10 items-center justify-center rounded-md border transition-colors",
-            scrolled ? "border-border text-foreground" : "border-white/40 text-white",
-          )}
+          className="lg:hidden inline-flex h-11 w-11 items-center justify-center rounded-md border"
+          style={{ borderColor: "rgba(46,52,64,0.15)", color: NAV_INK }}
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
-      </Container>
+      </div>
 
       {/* Mobile panel */}
       {open && (
-        <div className="md:hidden border-t border-border bg-background animate-fade-in">
-          <Container className="py-4 flex flex-col gap-1">
+        <div className="lg:hidden border-t bg-white animate-fade-in" style={{ borderColor: "rgba(46,52,64,0.08)" }}>
+          <div className="mx-auto flex max-w-[1400px] flex-col gap-1 px-6 py-5">
             {siteConfig.nav.primary.map((item) => (
               <Link
-                key={item.to}
+                key={item.label}
                 to={item.to}
                 onClick={() => setOpen(false)}
-                className="rounded-md px-3 py-2 text-sm font-medium text-foreground/80 hover:bg-secondary hover:text-primary"
-                activeProps={{ className: "bg-secondary text-primary" }}
+                className="rounded-md px-3 py-2.5 text-sm font-semibold"
+                style={{ color: NAV_INK }}
               >
                 {item.label}
               </Link>
             ))}
-            <a
-              href={`tel:${siteConfig.contact.phone}`}
-              className="mt-2 inline-flex items-center justify-center gap-2 rounded-md bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground"
+            <Link
+              to="/booking"
+              onClick={() => setOpen(false)}
+              className="mt-3 inline-flex items-center justify-center rounded-full font-semibold text-sm"
+              style={{ backgroundColor: BRAND_GOLD, color: BRAND_BLUE, padding: "14px 28px" }}
             >
-              <Phone className="h-4 w-4" /> Call Us
-            </a>
-          </Container>
+              Book Now
+            </Link>
+          </div>
         </div>
       )}
+
+      <style>{`
+        .nav-link::after {
+          content: "";
+          position: absolute;
+          left: 50%;
+          bottom: -8px;
+          height: 2px;
+          width: 0;
+          background: ${BRAND_GOLD};
+          transition: width 260ms cubic-bezier(0.16, 1, 0.3, 1), left 260ms cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .nav-link:hover { color: ${BRAND_BLUE}; }
+        .nav-link:hover::after,
+        .nav-link[data-active="true"]::after { width: 100%; left: 0; }
+        .nav-link[data-active="true"] { color: ${BRAND_BLUE}; }
+
+        .nav-cta:hover {
+          background-color: ${BRAND_BLUE} !important;
+          color: #ffffff !important;
+          transform: translateY(-2px);
+          box-shadow: 0 12px 24px -12px rgba(16,43,122,0.45);
+        }
+      `}</style>
     </header>
   );
 }
