@@ -17,6 +17,7 @@ import { Route as InquiryRouteImport } from './routes/inquiry'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as BookingRouteImport } from './routes/booking'
+import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AboutRouteImport } from './routes/about'
@@ -83,6 +84,11 @@ const ContactRoute = ContactRouteImport.update({
 const BookingRoute = BookingRouteImport.update({
   id: '/booking',
   path: '/booking',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthRoute = AuthRouteImport.update({
@@ -227,6 +233,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/admin': typeof AdminRouteWithChildren
   '/auth': typeof AuthRoute
+  '/blog': typeof BlogRoute
   '/booking': typeof BookingRoute
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
@@ -263,6 +270,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/auth': typeof AuthRoute
+  '/blog': typeof BlogRoute
   '/booking': typeof BookingRoute
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
@@ -301,6 +309,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/admin': typeof AdminRouteWithChildren
   '/auth': typeof AuthRoute
+  '/blog': typeof BlogRoute
   '/booking': typeof BookingRoute
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
@@ -340,6 +349,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/admin'
     | '/auth'
+    | '/blog'
     | '/booking'
     | '/contact'
     | '/gallery'
@@ -376,6 +386,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/auth'
+    | '/blog'
     | '/booking'
     | '/contact'
     | '/gallery'
@@ -413,6 +424,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/admin'
     | '/auth'
+    | '/blog'
     | '/booking'
     | '/contact'
     | '/gallery'
@@ -451,6 +463,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   AdminRoute: typeof AdminRouteWithChildren
   AuthRoute: typeof AuthRoute
+  BlogRoute: typeof BlogRoute
   BookingRoute: typeof BookingRoute
   ContactRoute: typeof ContactRoute
   GalleryRoute: typeof GalleryRoute
@@ -517,6 +530,13 @@ declare module '@tanstack/react-router' {
       path: '/booking'
       fullPath: '/booking'
       preLoaderRoute: typeof BookingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/auth': {
@@ -790,6 +810,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   AdminRoute: AdminRouteWithChildren,
   AuthRoute: AuthRoute,
+  BlogRoute: BlogRoute,
   BookingRoute: BookingRoute,
   ContactRoute: ContactRoute,
   GalleryRoute: GalleryRoute,
