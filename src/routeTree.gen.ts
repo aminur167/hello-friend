@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SiteVisitRouteImport } from './routes/site-visit'
 import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as InquiryRouteImport } from './routes/inquiry'
@@ -41,6 +42,11 @@ import { Route as AdminAnalyticsRouteImport } from './routes/admin.analytics'
 import { Route as AdminActivityRouteImport } from './routes/admin.activity'
 import { Route as ProjectsSlugApartmentsUnitIdRouteImport } from './routes/projects.$slug.apartments.$unitId'
 
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SiteVisitRoute = SiteVisitRouteImport.update({
   id: '/site-visit',
   path: '/site-visit',
@@ -207,6 +213,7 @@ export interface FileRoutesByFullPath {
   '/inquiry': typeof InquiryRoute
   '/projects': typeof ProjectsRouteWithChildren
   '/site-visit': typeof SiteVisitRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin/activity': typeof AdminActivityRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/apartments': typeof AdminApartmentsRoute
@@ -239,6 +246,7 @@ export interface FileRoutesByTo {
   '/inquiry': typeof InquiryRoute
   '/projects': typeof ProjectsRouteWithChildren
   '/site-visit': typeof SiteVisitRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin/activity': typeof AdminActivityRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/apartments': typeof AdminApartmentsRoute
@@ -273,6 +281,7 @@ export interface FileRoutesById {
   '/inquiry': typeof InquiryRoute
   '/projects': typeof ProjectsRouteWithChildren
   '/site-visit': typeof SiteVisitRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin/activity': typeof AdminActivityRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/apartments': typeof AdminApartmentsRoute
@@ -308,6 +317,7 @@ export interface FileRouteTypes {
     | '/inquiry'
     | '/projects'
     | '/site-visit'
+    | '/sitemap.xml'
     | '/admin/activity'
     | '/admin/analytics'
     | '/admin/apartments'
@@ -340,6 +350,7 @@ export interface FileRouteTypes {
     | '/inquiry'
     | '/projects'
     | '/site-visit'
+    | '/sitemap.xml'
     | '/admin/activity'
     | '/admin/analytics'
     | '/admin/apartments'
@@ -373,6 +384,7 @@ export interface FileRouteTypes {
     | '/inquiry'
     | '/projects'
     | '/site-visit'
+    | '/sitemap.xml'
     | '/admin/activity'
     | '/admin/analytics'
     | '/admin/apartments'
@@ -407,10 +419,18 @@ export interface RootRouteChildren {
   InquiryRoute: typeof InquiryRoute
   ProjectsRoute: typeof ProjectsRouteWithChildren
   SiteVisitRoute: typeof SiteVisitRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/site-visit': {
       id: '/site-visit'
       path: '/site-visit'
@@ -714,6 +734,7 @@ const rootRouteChildren: RootRouteChildren = {
   InquiryRoute: InquiryRoute,
   ProjectsRoute: ProjectsRouteWithChildren,
   SiteVisitRoute: SiteVisitRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
