@@ -4,24 +4,21 @@ import { premiumImages } from "@/lib/premium-images";
 
 const reviews = [
   {
-    name: "Rezaul Karim",
-    role: "Homeowner, North End Prime",
-    body: "From day one, every commitment was honoured. The finishing quality is remarkable and the handover was ahead of schedule.",
-    bn: "প্রতিটি প্রতিশ্রুতি সময়মতো রক্ষা করেছে।",
+    name: "রেজাউল করিম",
+    role: "গৃহকর্তা, নর্থ এন্ড রয়েল হাউস",
+    body: "প্রথম দিন থেকেই প্রতিটি প্রতিশ্রুতি সময়মতো রক্ষা করা হয়েছে। ফিনিশিংয়ের মান অসাধারণ এবং নির্ধারিত সময়ের আগেই হ্যান্ডওভার সম্পন্ন হয়েছে।",
     avatar: premiumImages.reviewers[1],
   },
   {
-    name: "Farhana Ahmed",
-    role: "Investor, Gold Leaf Tower",
-    body: "A rare mix of premium quality and honest pricing. My tenants have been staying continuously for years — best decision I made.",
-    bn: "প্রিমিয়াম মান আর সৎ মূল্য — চমৎকার।",
+    name: "ফারহানা আহমেদ",
+    role: "বিনিয়োগকারী, নর্থ এন্ড ফ্লেমিঙ্গো",
+    body: "প্রিমিয়াম মান আর সৎ মূল্যের বিরল সংমিশ্রণ। আমার ভাড়াটিয়ারা বছরের পর বছর ধরে আছেন — এটি আমার সেরা সিদ্ধান্ত ছিল।",
     avatar: premiumImages.reviewers[0],
   },
   {
-    name: "Dr. Shahidul Islam",
-    role: "Homeowner, Emerald Court",
-    body: "Their engineering team walked us through every stage. My family finally has the home we always dreamed about.",
-    bn: "পরিবারের স্বপ্নের বাড়ি খুঁজে পেয়েছি।",
+    name: "ডঃ শহিদুল ইসলাম",
+    role: "গৃহকর্তা, নর্থ এন্ড লেক ভিউ",
+    body: "তাদের ইঞ্জিনিয়ারিং টিম প্রতিটি ধাপে আমাদের সঙ্গে ছিল। অবশেষে আমার পরিবার স্বপ্নের বাড়িটি খুঁজে পেয়েছে।",
     avatar: premiumImages.reviewers[2],
   },
 ];
@@ -32,9 +29,9 @@ export function CustomerReviews() {
       <div className="container-page">
         <SectionHeader
           align="center"
-          kicker="Customer Reviews"
-          title="The reason we do what we do"
-          titleBn="আমাদের গ্রাহকদের অভিজ্ঞতা"
+          kicker="গ্রাহক অভিজ্ঞতা"
+          title="আমাদের গ্রাহকদের অভিজ্ঞতা"
+          titleBn="যাদের ভালোবাসায় আমরা এগিয়ে চলেছি"
         />
         <div className="mt-14 grid gap-6 md:grid-cols-3">
           {reviews.map((r) => (
@@ -48,12 +45,9 @@ export function CustomerReviews() {
                   <Star key={i} className="h-4 w-4 fill-current" />
                 ))}
               </div>
-              <blockquote className="mt-4 text-foreground/85">
+              <blockquote className="mt-4 font-bangla text-foreground/85 leading-relaxed">
                 &ldquo;{r.body}&rdquo;
               </blockquote>
-              <p className="mt-3 font-bangla text-sm text-muted-foreground">
-                {r.bn}
-              </p>
               <figcaption className="mt-6 flex items-center gap-3 border-t border-border pt-5">
                 <img
                   src={r.avatar}
@@ -62,8 +56,8 @@ export function CustomerReviews() {
                   className="h-11 w-11 rounded-full object-cover ring-2 ring-brand-gold/40"
                 />
                 <div>
-                  <div className="text-sm font-semibold text-foreground">{r.name}</div>
-                  <div className="text-xs text-muted-foreground">{r.role}</div>
+                  <div className="font-bangla text-sm font-semibold text-foreground">{r.name}</div>
+                  <div className="font-bangla text-xs text-muted-foreground">{r.role}</div>
                 </div>
               </figcaption>
             </figure>
