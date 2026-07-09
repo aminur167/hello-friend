@@ -8,6 +8,8 @@ export function SectionHeader({
   align = "left",
   invert = false,
   className,
+  goldWord,
+  subtitleBn,
 }: {
   kicker?: string;
   title: string;
@@ -16,7 +18,20 @@ export function SectionHeader({
   align?: "left" | "center";
   invert?: boolean;
   className?: string;
+  goldWord?: string;
+  subtitleBn?: string;
 }) {
+  const renderTitle = () => {
+    if (!goldWord) return title;
+    const parts = title.split(goldWord);
+    return (
+      <>
+        {parts[0]}
+        <span className="italic text-brand-gold">{goldWord}</span>
+        {parts.slice(1).join(goldWord)}
+      </>
+    );
+  };
   return (
     <div
       className={cn(
@@ -28,24 +43,22 @@ export function SectionHeader({
       {kicker && (
         <div
           className={cn(
-            "flex items-center gap-3",
+            "luxe-kicker flex items-center",
             align === "center" && "justify-center",
           )}
         >
-          <span className="gold-divider" aria-hidden />
-          <span className="text-[11px] font-semibold uppercase tracking-[0.28em] text-brand-gold">
-            {kicker}
-          </span>
-          <span className="gold-divider" aria-hidden />
+          <span className="h-px w-8 bg-brand-gold/60" aria-hidden />
+          <span>{kicker}</span>
+          <span className="h-px w-8 bg-brand-gold/60" aria-hidden />
         </div>
       )}
       <h2
         className={cn(
-          "mt-4 text-balance text-3xl font-semibold leading-[1.1] tracking-tight md:text-4xl lg:text-[2.75rem]",
+          "luxe-display mt-5 text-balance text-[2rem] leading-[1.08] md:text-5xl lg:text-[3.25rem]",
           invert ? "text-white" : "text-foreground",
         )}
       >
-        {title}
+        {renderTitle()}
       </h2>
       {titleBn && (
         <p
@@ -67,6 +80,17 @@ export function SectionHeader({
           {subtitle}
         </p>
       )}
+      {subtitleBn && (
+        <p
+          className={cn(
+            "mt-3 font-bangla text-base leading-relaxed md:text-lg",
+            invert ? "text-white/60" : "text-muted-foreground",
+          )}
+        >
+          {subtitleBn}
+        </p>
+      )}
+      <span className={cn("mt-6 inline-block h-px w-16", invert ? "bg-brand-gold/70" : "bg-brand-gold/70", align === "center" && "mx-auto")} />
     </div>
   );
 }

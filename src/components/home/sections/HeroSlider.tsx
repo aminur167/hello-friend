@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ChevronLeft, ChevronRight, ArrowRight, PlayCircle } from "lucide-react";
+import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import slide1 from "@/assets/projects/14.29.52_1.jpg.asset.json";   // tall brick tower, blue sky
 import slide2 from "@/assets/projects/14.29.51_1.jpg.asset.json";   // luxury tower at night
@@ -8,70 +8,83 @@ import slide4 from "@/assets/projects/14-29-55_1.jpg.asset.json";   // rooftop g
 import slide5 from "@/assets/projects/14-29-50.jpg.asset.json";     // flamingo residence
 
 type Slide = {
-  kicker: string;
+  chip: string;
+  chipBn: string;
+  eyebrow: string;
   title: string;
+  goldWord: string;
   titleBn: string;
-  subtitle: string;
-  cta: string;
+  location: string;
+  ctaPrimary: string;
+  ctaSecondary: string;
   image: string;
-  accent: string;
   href: string;
 };
 
 const slides: Slide[] = [
   {
-    kicker: "Signature Collection",
-    title: "Elevating Rangpur's Skyline",
-    titleBn: "রংপুরের আকাশে নতুন উচ্চতা",
-    subtitle:
-      "Handcrafted residences engineered with international standards, premium finishes and timeless architecture.",
-    cta: "Explore Projects",
+    chip: "Signature Collection",
+    chipBn: "নর্থ এন্ড সিগনেচার",
+    eyebrow: "A BOUTIQUE RESIDENCE",
+    title: "রংপুরের হৃদয়ে গড়ে উঠছে এক অনন্য ঠিকানা",
+    goldWord: "অনন্য",
+    titleBn: "Elevating Rangpur's skyline — one crafted home at a time.",
+    location: "Central Rangpur · Bangladesh",
+    ctaPrimary: "বুকিং করুন",
+    ctaSecondary: "প্রকল্প দেখুন",
     image: slide1.url,
-    accent: "oklch(0.74 0.15 82)",
-    href: "/projects",
+    href: "/booking",
   },
   {
-    kicker: "Now Booking",
-    title: "The North End Residences",
-    titleBn: "নর্থ এন্ড রেসিডেন্সেস",
-    subtitle:
-      "Limited 3 & 4 bedroom sky homes with panoramic city views in the heart of Rangpur.",
-    cta: "Book a Site Visit",
+    chip: "Now Booking",
+    chipBn: "এখনই বুকিং চলছে",
+    eyebrow: "SKY RESIDENCES",
+    title: "নিজের জন্য বেছে নিন এক নিখুঁত সৌন্দর্যের বাড়ি",
+    goldWord: "নিখুঁত",
+    titleBn: "Limited 3 & 4-bedroom sky homes with panoramic city views.",
+    location: "Medical More · Rangpur",
+    ctaPrimary: "সাইট ভিজিট বুক করুন",
+    ctaSecondary: "ফ্লোর প্ল্যান",
     image: slide2.url,
-    accent: "oklch(0.85 0.16 82)",
     href: "/site-visit",
   },
   {
-    kicker: "Commercial Landmark",
-    title: "Business Addresses That Perform",
-    titleBn: "ব্যবসার জন্য নিখুঁত ঠিকানা",
-    subtitle:
-      "Grade-A commercial floors, retail arcades and boutique showrooms crafted for growth.",
-    cta: "View Commercial",
+    chip: "Commercial Landmark",
+    chipBn: "কমার্শিয়াল ল্যান্ডমার্ক",
+    eyebrow: "GRADE-A ADDRESSES",
+    title: "ব্যবসার জন্য এক অসাধারণ ঠিকানা",
+    goldWord: "অসাধারণ",
+    titleBn: "Grade-A commercial floors, retail arcades and boutique showrooms.",
+    location: "Jail Road · Rangpur",
+    ctaPrimary: "কমার্শিয়াল দেখুন",
+    ctaSecondary: "যোগাযোগ",
     image: slide3.url,
-    accent: "oklch(0.80 0.16 60)",
     href: "/projects",
   },
   {
-    kicker: "Prime Land",
-    title: "Own a Piece of Rangpur",
-    titleBn: "রংপুরে নিজের জমি",
-    subtitle:
-      "Curated land plots with clear title, planned infrastructure and long-term appreciation.",
-    cta: "See Available Plots",
+    chip: "Sky Gardens",
+    chipBn: "স্কাই গার্ডেন সিরিজ",
+    eyebrow: "ROOFTOP LIVING",
+    title: "শহরের উপরে গড়ে তুলুন সবুজ জীবন",
+    goldWord: "সবুজ",
+    titleBn: "Landscaped rooftops, wellness decks and sky lounges above the city.",
+    location: "Modern More · Rangpur",
+    ctaPrimary: "বুকিং করুন",
+    ctaSecondary: "ভিডিও দেখুন",
     image: slide4.url,
-    accent: "oklch(0.82 0.16 130)",
-    href: "/inquiry",
+    href: "/booking",
   },
   {
-    kicker: "Investor Program",
-    title: "Invest Where Growth Is Certain",
-    titleBn: "নিরাপদ বিনিয়োগের নিশ্চয়তা",
-    subtitle:
-      "Structured returns, transparent handover timelines and full-service asset management.",
-    cta: "Talk to an Advisor",
+    chip: "Investor Program",
+    chipBn: "বিনিয়োগ প্রোগ্রাম",
+    eyebrow: "SECURE RETURNS",
+    title: "নিরাপদ বিনিয়োগের সেরা ঠিকানা",
+    goldWord: "সেরা",
+    titleBn: "Structured returns, transparent timelines and full-service asset management.",
+    location: "Rangpur · Bangladesh",
+    ctaPrimary: "পরামর্শ নিন",
+    ctaSecondary: "প্রোজেক্ট দেখুন",
     image: slide5.url,
-    accent: "oklch(0.78 0.15 82)",
     href: "/booking",
   },
 ];
@@ -117,95 +130,92 @@ export function HeroSlider() {
             alt=""
             aria-hidden
             loading={i === 0 ? "eager" : "lazy"}
-            className="absolute inset-0 h-full w-full object-cover object-center"
+            className={cn(
+              "absolute inset-0 h-full w-full object-cover object-center",
+              i === active && "animate-luxe-zoom",
+            )}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-brand-navy/90 via-brand-navy/60 to-brand-navy/10" />
-          <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/80 via-brand-navy/10 to-brand-navy/40" />
-          <div className="pointer-events-none absolute inset-0" style={{ background: "radial-gradient(60% 80% at 20% 50%, oklch(0.15 0.05 265 / 0.55), transparent 70%)" }} />
+          {/* Cinematic vignette — dark top & bottom for centered composition */}
+          <div className="absolute inset-0 bg-gradient-to-b from-brand-navy/70 via-brand-navy/25 to-brand-navy/85" />
+          <div className="absolute inset-0 bg-brand-navy/25" />
+          <div className="pointer-events-none absolute inset-0" style={{ background: "radial-gradient(70% 65% at 50% 55%, transparent 0%, oklch(0.12 0.05 265 / 0.55) 100%)" }} />
         </div>
       ))}
 
-      {/* Glass content card */}
-      <div className="relative z-10 container-page flex h-full flex-col justify-end pb-24 pt-40 md:justify-center md:pb-32 md:pt-32">
-        <div className="max-w-2xl">
-          {slides.map((s, i) => (
-            <div
-              key={i}
-              className={cn(
-                "transition-all duration-[900ms] ease-out",
-                i === active
-                  ? "opacity-100 translate-y-0"
-                  : "hidden opacity-0 translate-y-6",
-              )}
-            >
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 backdrop-blur-md">
-                <span
-                  className="h-1.5 w-1.5 rounded-full"
-                  style={{ background: s.accent }}
-                />
-                <span className="text-xs font-medium uppercase tracking-[0.22em] text-white/90">
-                  {s.kicker}
-                </span>
-              </div>
-              <h1 className="mt-6 text-4xl font-semibold leading-[1.05] text-white sm:text-5xl md:text-6xl lg:text-7xl">
-                {s.title}
-              </h1>
-              <p className="mt-3 font-bangla text-lg text-white/80 md:text-xl">
-                {s.titleBn}
-              </p>
-              <p className="mt-6 max-w-xl text-base text-white/75 md:text-lg">
-                {s.subtitle}
-              </p>
-              <div className="mt-8 flex flex-wrap items-center gap-3">
-                <a
-                  href={s.href}
-                  className="group inline-flex items-center gap-2 rounded-md bg-brand-gold px-6 py-3 text-sm font-semibold text-brand-gold-foreground shadow-gold transition-transform hover:-translate-y-0.5"
-                >
-                  {s.cta}
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </a>
-                <a
-                  href="#video"
-                  className="inline-flex items-center gap-2 rounded-md border border-white/25 bg-white/5 px-6 py-3 text-sm font-semibold text-white backdrop-blur-md transition-colors hover:bg-white/10"
-                >
-                  <PlayCircle className="h-5 w-5" />
-                  Watch Company Film
-                </a>
-              </div>
+      {/* Centered luxury composition */}
+      <div className="relative z-10 container-page flex h-full flex-col items-center justify-center pt-24 text-center">
+        {slides.map((s, i) => (
+          <div
+            key={i}
+            className={cn(
+              "mx-auto max-w-4xl transition-all duration-[900ms] ease-out",
+              i === active
+                ? "opacity-100 translate-y-0"
+                : "hidden opacity-0 translate-y-6",
+            )}
+          >
+            <div className="luxe-pill mx-auto">
+              <span className="luxe-pill-dot" />
+              {s.chip}
             </div>
-          ))}
-        </div>
-
-        {/* Controls */}
-        <div className="mt-10 flex items-center justify-between md:mt-16">
-          <div className="flex items-center gap-2">
-            {slides.map((_, i) => (
-              <button
-                key={i}
-                aria-label={`Slide ${i + 1}`}
-                onClick={() => setActive(i)}
-                className={cn(
-                  "h-1.5 rounded-full transition-all",
-                  i === active ? "w-10 bg-brand-gold" : "w-5 bg-white/35 hover:bg-white/60",
-                )}
-              />
-            ))}
+            <div className="mt-6 text-[11px] font-semibold uppercase tracking-[0.42em] text-white/70">
+              {s.eyebrow}
+            </div>
+            <h1 className="luxe-display mt-6 font-bangla text-balance text-4xl text-white sm:text-5xl md:text-6xl lg:text-[4.25rem]">
+              {s.title.split(s.goldWord).map((part, idx, arr) => (
+                <span key={idx}>
+                  {part}
+                  {idx < arr.length - 1 && (
+                    <span className="italic text-brand-gold">{s.goldWord}</span>
+                  )}
+                </span>
+              ))}
+            </h1>
+            <p className="mx-auto mt-5 max-w-2xl text-balance text-base text-white/75 md:text-lg">
+              {s.titleBn}
+            </p>
+            <div className="mx-auto mt-7 flex items-center justify-center gap-3 text-[11px] font-medium uppercase tracking-[0.32em] text-white/60">
+              <span className="h-px w-8 bg-white/40" />
+              {s.location}
+              <span className="h-px w-8 bg-white/40" />
+            </div>
+            <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <a href={s.href} className="btn-luxe-gold">
+                {s.ctaPrimary}
+                <ArrowRight className="h-4 w-4" />
+              </a>
+              <a href="/projects" className="btn-luxe-ghost">
+                {s.ctaSecondary}
+              </a>
+            </div>
           </div>
-          <div className="hidden md:flex items-center gap-2">
-            <button
-              onClick={() => go(-1)}
-              aria-label="Previous slide"
-              className="grid h-11 w-11 place-items-center rounded-full border border-white/25 bg-white/5 text-white backdrop-blur-md transition-colors hover:bg-white/15"
-            >
+        ))}
+
+        {/* Bottom controls */}
+        <div className="absolute inset-x-0 bottom-10 flex flex-col items-center gap-6 px-6">
+          <div className="flex items-center gap-4">
+            <button onClick={() => go(-1)} aria-label="Previous slide" className="arrow-nav">
               <ChevronLeft className="h-5 w-5" />
             </button>
-            <button
-              onClick={() => go(1)}
-              aria-label="Next slide"
-              className="grid h-11 w-11 place-items-center rounded-full border border-white/25 bg-white/5 text-white backdrop-blur-md transition-colors hover:bg-white/15"
-            >
+            <div className="flex items-center gap-2">
+              {slides.map((_, i) => (
+                <button
+                  key={i}
+                  aria-label={`Slide ${i + 1}`}
+                  onClick={() => setActive(i)}
+                  className={cn(
+                    "h-[3px] rounded-full transition-all",
+                    i === active ? "w-10 bg-brand-gold" : "w-5 bg-white/35 hover:bg-white/60",
+                  )}
+                />
+              ))}
+            </div>
+            <button onClick={() => go(1)} aria-label="Next slide" className="arrow-nav">
               <ChevronRight className="h-5 w-5" />
             </button>
+          </div>
+          <div className="hidden text-[10px] font-semibold uppercase tracking-[0.4em] text-white/55 md:block">
+            {String(active + 1).padStart(2, "0")} / {String(slides.length).padStart(2, "0")}
           </div>
         </div>
       </div>
