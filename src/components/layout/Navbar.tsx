@@ -84,7 +84,7 @@ export function Navbar() {
               to={item.to}
               className="nav-link relative text-[15px] transition-all"
               style={{ fontFamily: BN_FONT, fontWeight: 600, letterSpacing: "0.2px", color: BRAND_BLUE }}
-              activeOptions={{ exact: item.to === "/" }}
+              activeOptions={{ exact: true }}
               activeProps={{ "data-active": "true" } as never}
             >
               {item.label}
