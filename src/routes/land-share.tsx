@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/layout/SiteLayout";
 import { ProjectsHeader } from "@/components/projects/ProjectsHeader";
-import { SectionHeader } from "@/components/home/SectionHeader";
+import { SectionHeader } from "@/components/home/sections/SectionHeader";
 import { Handshake, ShieldCheck, ScrollText, Building2, Coins, ClipboardCheck, Phone, MapPin, CheckCircle2 } from "lucide-react";
 import heroImg from "@/assets/projects/14-29-54.jpg.asset.json";
 import img1 from "@/assets/projects/14-29-49.jpg.asset.json";
