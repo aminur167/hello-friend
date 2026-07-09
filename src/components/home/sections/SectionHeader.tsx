@@ -59,7 +59,7 @@ export function SectionHeader({
         )}
       >
         {titleBn ? (
-          <span className="font-bangla font-semibold tracking-[-0.02em] leading-[1.15] text-[1.9rem] md:text-[2.75rem] lg:text-[3.25rem]">
+          <span className="font-bangla font-light tracking-[-0.015em] leading-[1.2] text-[2.1rem] md:text-[3rem] lg:text-[3.6rem] text-brand-navy">
             {titleBn}
           </span>
         ) : (
