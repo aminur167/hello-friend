@@ -9,38 +9,111 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ProjectsRunningRouteImport } from './routes/projects.running'
+import { Route as ProjectsCompletedRouteImport } from './routes/projects.completed'
+import { Route as ProjectsSlugRouteImport } from './routes/projects.$slug'
+import { Route as ProjectsSlugApartmentsUnitIdRouteImport } from './routes/projects.$slug.apartments.$unitId'
 
+const ProjectsRoute = ProjectsRouteImport.update({
+  id: '/projects',
+  path: '/projects',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProjectsRunningRoute = ProjectsRunningRouteImport.update({
+  id: '/running',
+  path: '/running',
+  getParentRoute: () => ProjectsRoute,
+} as any)
+const ProjectsCompletedRoute = ProjectsCompletedRouteImport.update({
+  id: '/completed',
+  path: '/completed',
+  getParentRoute: () => ProjectsRoute,
+} as any)
+const ProjectsSlugRoute = ProjectsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => ProjectsRoute,
+} as any)
+const ProjectsSlugApartmentsUnitIdRoute =
+  ProjectsSlugApartmentsUnitIdRouteImport.update({
+    id: '/apartments/$unitId',
+    path: '/apartments/$unitId',
+    getParentRoute: () => ProjectsSlugRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/projects': typeof ProjectsRouteWithChildren
+  '/projects/$slug': typeof ProjectsSlugRouteWithChildren
+  '/projects/completed': typeof ProjectsCompletedRoute
+  '/projects/running': typeof ProjectsRunningRoute
+  '/projects/$slug/apartments/$unitId': typeof ProjectsSlugApartmentsUnitIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/projects': typeof ProjectsRouteWithChildren
+  '/projects/$slug': typeof ProjectsSlugRouteWithChildren
+  '/projects/completed': typeof ProjectsCompletedRoute
+  '/projects/running': typeof ProjectsRunningRoute
+  '/projects/$slug/apartments/$unitId': typeof ProjectsSlugApartmentsUnitIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/projects': typeof ProjectsRouteWithChildren
+  '/projects/$slug': typeof ProjectsSlugRouteWithChildren
+  '/projects/completed': typeof ProjectsCompletedRoute
+  '/projects/running': typeof ProjectsRunningRoute
+  '/projects/$slug/apartments/$unitId': typeof ProjectsSlugApartmentsUnitIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/projects'
+    | '/projects/$slug'
+    | '/projects/completed'
+    | '/projects/running'
+    | '/projects/$slug/apartments/$unitId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/projects'
+    | '/projects/$slug'
+    | '/projects/completed'
+    | '/projects/running'
+    | '/projects/$slug/apartments/$unitId'
+  id:
+    | '__root__'
+    | '/'
+    | '/projects'
+    | '/projects/$slug'
+    | '/projects/completed'
+    | '/projects/running'
+    | '/projects/$slug/apartments/$unitId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ProjectsRoute: typeof ProjectsRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/projects': {
+      id: '/projects'
+      path: '/projects'
+      fullPath: '/projects'
+      preLoaderRoute: typeof ProjectsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +121,68 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/projects/running': {
+      id: '/projects/running'
+      path: '/running'
+      fullPath: '/projects/running'
+      preLoaderRoute: typeof ProjectsRunningRouteImport
+      parentRoute: typeof ProjectsRoute
+    }
+    '/projects/completed': {
+      id: '/projects/completed'
+      path: '/completed'
+      fullPath: '/projects/completed'
+      preLoaderRoute: typeof ProjectsCompletedRouteImport
+      parentRoute: typeof ProjectsRoute
+    }
+    '/projects/$slug': {
+      id: '/projects/$slug'
+      path: '/$slug'
+      fullPath: '/projects/$slug'
+      preLoaderRoute: typeof ProjectsSlugRouteImport
+      parentRoute: typeof ProjectsRoute
+    }
+    '/projects/$slug/apartments/$unitId': {
+      id: '/projects/$slug/apartments/$unitId'
+      path: '/apartments/$unitId'
+      fullPath: '/projects/$slug/apartments/$unitId'
+      preLoaderRoute: typeof ProjectsSlugApartmentsUnitIdRouteImport
+      parentRoute: typeof ProjectsSlugRoute
+    }
   }
 }
 
+interface ProjectsSlugRouteChildren {
+  ProjectsSlugApartmentsUnitIdRoute: typeof ProjectsSlugApartmentsUnitIdRoute
+}
+
+const ProjectsSlugRouteChildren: ProjectsSlugRouteChildren = {
+  ProjectsSlugApartmentsUnitIdRoute: ProjectsSlugApartmentsUnitIdRoute,
+}
+
+const ProjectsSlugRouteWithChildren = ProjectsSlugRoute._addFileChildren(
+  ProjectsSlugRouteChildren,
+)
+
+interface ProjectsRouteChildren {
+  ProjectsSlugRoute: typeof ProjectsSlugRouteWithChildren
+  ProjectsCompletedRoute: typeof ProjectsCompletedRoute
+  ProjectsRunningRoute: typeof ProjectsRunningRoute
+}
+
+const ProjectsRouteChildren: ProjectsRouteChildren = {
+  ProjectsSlugRoute: ProjectsSlugRouteWithChildren,
+  ProjectsCompletedRoute: ProjectsCompletedRoute,
+  ProjectsRunningRoute: ProjectsRunningRoute,
+}
+
+const ProjectsRouteWithChildren = ProjectsRoute._addFileChildren(
+  ProjectsRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ProjectsRoute: ProjectsRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
