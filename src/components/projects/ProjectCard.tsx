@@ -20,11 +20,26 @@ export function ProjectCard({ project }: { project: Project }) {
   return (
     <article className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-card-soft transition-all hover:-translate-y-1 hover:shadow-elegant">
       <div className="relative">
-        <ProjectVisual
-          hue={project.heroHue}
-          className="aspect-[4/3]"
-          label={project.type}
-        />
+        {project.image ? (
+          <div className="relative aspect-[4/3] overflow-hidden">
+            <img
+              src={project.image}
+              alt={`${project.name} — ${project.type} in ${project.location}, Rangpur`}
+              loading="lazy"
+              className="h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.06]"
+            />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+            <span className="absolute left-4 top-4 rounded-full border border-white/25 bg-white/10 px-3 py-1 text-[11px] font-medium uppercase tracking-widest text-white backdrop-blur-md">
+              {project.type}
+            </span>
+          </div>
+        ) : (
+          <ProjectVisual
+            hue={project.heroHue}
+            className="aspect-[4/3]"
+            label={project.type}
+          />
+        )}
         <span
           className={`absolute right-4 top-4 rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-widest ${statusStyles[project.status]}`}
         >
