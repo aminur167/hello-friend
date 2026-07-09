@@ -61,13 +61,24 @@ export function ProjectsHeader({
   kicker,
   title,
   subtitle,
+  image,
 }: {
   kicker: string;
   title: string;
   subtitle?: string;
+  image?: string;
 }) {
   return (
     <section className="relative overflow-hidden bg-hero-gradient text-white">
+      {image && (
+        <div
+          className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-40"
+          style={{ backgroundImage: `url(${image})` }}
+        />
+      )}
+      {image && (
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-brand-navy/90 via-brand-navy/70 to-brand-navy/40" />
+      )}
       <div
         className="pointer-events-none absolute inset-0 opacity-30"
         style={{
