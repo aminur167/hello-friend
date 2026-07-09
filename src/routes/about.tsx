@@ -48,10 +48,6 @@ function AboutPage() {
         title="বিশ্বাস, গুণগত মান এবং আধুনিক আবাসনের অঙ্গীকার"
         subtitle="নর্থ এন্ড কনস্ট্রাকশন লিমিটেড — উত্তরাঞ্চলের বিশ্বস্ত নির্মাতা। ১৫+ বছরের অভিজ্ঞতা, ৫০+ সম্পন্ন প্রকল্প এবং ১,২০০+ সন্তুষ্ট পরিবার আমাদের যাত্রার সাক্ষী।"
         image={heroTower}
-        ctas={[
-          { label: "আমাদের প্রকল্প", to: "/projects/running", variant: "gold" },
-          { label: "যোগাযোগ করুন", to: "/contact", variant: "ghost" },
-        ]}
       />
 
       <section className="py-20 md:py-28">
