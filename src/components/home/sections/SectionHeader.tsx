@@ -58,22 +58,16 @@ export function SectionHeader({
           invert ? "text-white" : "text-foreground",
         )}
       >
-        {renderTitle()}
+        {titleBn ? (
+          <span className="font-bangla font-extrabold tracking-tight">{titleBn}</span>
+        ) : (
+          renderTitle()
+        )}
       </h2>
-      {titleBn && (
-        <p
-          className={cn(
-            "mt-3 font-bangla text-lg md:text-xl",
-            invert ? "text-white/70" : "text-muted-foreground",
-          )}
-        >
-          {titleBn}
-        </p>
-      )}
       {subtitle && (
         <p
           className={cn(
-            "mt-5 text-balance text-base leading-relaxed md:text-lg",
+            "mt-4 text-balance text-sm leading-relaxed md:text-base",
             invert ? "text-white/70" : "text-muted-foreground",
           )}
         >
