@@ -24,7 +24,7 @@ export function CompletedProjects() {
               key={p.name}
               className="group relative overflow-hidden rounded-xl bg-card shadow-card-soft transition-all hover:-translate-y-1 hover:shadow-elegant"
             >
-              <ProjectVisual hue={p.hue} className="aspect-[3/4]" />
+              <ProjectVisual hue={p.hue} className="aspect-[4/3]" />
               <div className="absolute inset-x-0 bottom-0 p-5">
                 <div className="inline-flex items-center gap-1 rounded-full bg-brand-green/90 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-brand-green-foreground">
                   <CheckCircle2 className="h-3 w-3" /> Handed Over {p.year}
