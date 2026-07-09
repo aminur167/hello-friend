@@ -39,7 +39,7 @@ export function BuildingShowcase() {
           {renders.map((r) => (
             <figure
               key={r.src}
-              className={`group relative overflow-hidden rounded-2xl border border-border/40 shadow-card-soft transition-all duration-500 hover:shadow-elegant hover:-translate-y-1 ${r.span}`}
+              className={`group relative overflow-hidden rounded-2xl border border-border/40 shadow-card-soft transition-all duration-500 hover:shadow-elegant hover:-translate-y-1 aspect-[4/3] md:aspect-auto ${r.span}`}
             >
               <img
                 src={r.src}
