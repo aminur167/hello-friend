@@ -1,12 +1,12 @@
 import { Phone } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
 import { LeadForm } from "@/components/forms/LeadForm";
-import heroInterior from "@/assets/hero-interior.jpg";
+import { premiumImages } from "@/lib/premium-images";
 
 export function BookingCTA() {
   return (
     <section id="booking" className="relative isolate overflow-hidden bg-brand-navy py-20 text-white md:py-28">
-      <img src={heroInterior} alt="" aria-hidden className="absolute inset-0 h-full w-full object-cover opacity-30" />
+      <img src={premiumImages.bookingHero} alt="" aria-hidden loading="lazy" className="absolute inset-0 h-full w-full object-cover opacity-35" />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-brand-navy via-brand-navy/85 to-brand-navy/40" />
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-gold/60 to-transparent" />
       <div className="pointer-events-none absolute -left-24 top-1/2 h-96 w-96 -translate-y-1/2 rounded-full bg-brand-gold/20 blur-3xl" />
