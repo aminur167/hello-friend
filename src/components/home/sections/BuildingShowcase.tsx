@@ -1,0 +1,53 @@
+import img1 from "@/assets/projects/14-29-49.jpg.asset.json";
+import img2 from "@/assets/projects/14-29-50.jpg.asset.json";
+import img3 from "@/assets/projects/14-29-53.jpg.asset.json";
+import img4 from "@/assets/projects/14-29-54.jpg.asset.json";
+import img5 from "@/assets/projects/14-29-54_1.jpg.asset.json";
+import img6 from "@/assets/projects/14-29-55.jpg.asset.json";
+import img7 from "@/assets/projects/14-29-55_1.jpg.asset.json";
+import { SectionHeader } from "./SectionHeader";
+
+const renders = [
+  { src: img2.url, title: "North End Flamingo", location: "Central Rangpur", span: "md:col-span-2 md:row-span-2" },
+  { src: img1.url, title: "Sky Vista Tower", location: "Medical More", span: "" },
+  { src: img3.url, title: "Ember Heights", location: "Jail Road", span: "" },
+  { src: img4.url, title: "Terracotta Court", location: "Modern More", span: "" },
+  { src: img5.url, title: "The Ember Collection", location: "Betpotti", span: "" },
+  { src: img6.url, title: "Greenline Residence", location: "North Rangpur", span: "md:col-span-2" },
+  { src: img7.url, title: "Rooftop Gardens Aerial", location: "Central Road", span: "md:col-span-2" },
+];
+
+export function BuildingShowcase() {
+  return (
+    <section className="py-20 md:py-28 bg-background">
+      <div className="container-page">
+        <SectionHeader
+          kicker="Architectural Portfolio"
+          title="Signature Buildings by North End"
+          titleBn="নর্থ এন্ডের সিগনেচার ভবনসমূহ"
+          subtitle="A curated look at our recent developments — where architecture, greenery and craftsmanship meet."
+        />
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-4 md:auto-rows-[220px] gap-4">
+          {renders.map((r) => (
+            <figure
+              key={r.src}
+              className={`group relative overflow-hidden rounded-lg border border-border/50 shadow-soft ${r.span}`}
+            >
+              <img
+                src={r.src}
+                alt={r.title}
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/85 via-brand-navy/10 to-transparent" />
+              <figcaption className="absolute inset-x-0 bottom-0 p-5 text-white">
+                <div className="text-xs uppercase tracking-[0.22em] text-brand-gold">{r.location}</div>
+                <div className="mt-1 text-lg font-semibold">{r.title}</div>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
