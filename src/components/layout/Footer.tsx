@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Facebook, Instagram, Youtube, Linkedin, MapPin, Phone, Mail } from "lucide-react";
 import { Container } from "./Container";
 import { siteConfig } from "@/lib/site-config";
-import brandLogo from "@/assets/brand-logo.jpg.asset.json";
+import brandLogo from "@/assets/brand-logo.png.asset.json";
 
 export function Footer() {
   const year = new Date().getFullYear();
