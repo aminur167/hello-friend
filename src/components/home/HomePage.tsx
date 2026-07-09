@@ -1,6 +1,7 @@
 import { HeroSlider } from "./sections/HeroSlider";
 import { TrustStrip } from "./sections/TrustStrip";
 import { FeaturedProjects } from "./sections/FeaturedProjects";
+import { BuildingShowcase } from "./sections/BuildingShowcase";
 import { AboutCompany } from "./sections/AboutCompany";
 import { WhyChooseUs } from "./sections/WhyChooseUs";
 import { OngoingProjects } from "./sections/OngoingProjects";
