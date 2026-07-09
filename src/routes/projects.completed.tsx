@@ -21,9 +21,9 @@ function CompletedPage() {
   return (
     <SiteLayout>
       <ProjectsHeader
-        kicker="Completed Projects"
-        title="Delivered. Loved. Lived in."
-        subtitle="Handed over on time, handed over with pride — buildings already shaping lives in Rangpur."
+        kicker="সমাপ্ত প্রকল্পসমূহ"
+        title="হস্তান্তরিত। ভালোবাসায় ঘেরা। জীবনের অংশ।"
+        subtitle="সময়মতো হস্তান্তর, গর্বের সাথে হস্তান্তর — রংপুরের বুকে যে ভবনগুলো ইতোমধ্যে হাজারো পরিবারের জীবন গড়ছে।"
         image={completedHero.url}
       />
       <section className="container-page pb-24">
