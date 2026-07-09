@@ -21,6 +21,8 @@ import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as ProjectsRunningRouteImport } from './routes/projects.running'
 import { Route as ProjectsCompletedRouteImport } from './routes/projects.completed'
 import { Route as ProjectsSlugRouteImport } from './routes/projects.$slug'
+import { Route as AdminLeadsRouteImport } from './routes/admin.leads'
+import { Route as AdminBookingsRouteImport } from './routes/admin.bookings'
 import { Route as ProjectsSlugApartmentsUnitIdRouteImport } from './routes/projects.$slug.apartments.$unitId'
 
 const SiteVisitRoute = SiteVisitRouteImport.update({
@@ -83,6 +85,16 @@ const ProjectsSlugRoute = ProjectsSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => ProjectsRoute,
 } as any)
+const AdminLeadsRoute = AdminLeadsRouteImport.update({
+  id: '/leads',
+  path: '/leads',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminBookingsRoute = AdminBookingsRouteImport.update({
+  id: '/bookings',
+  path: '/bookings',
+  getParentRoute: () => AdminRoute,
+} as any)
 const ProjectsSlugApartmentsUnitIdRoute =
   ProjectsSlugApartmentsUnitIdRouteImport.update({
     id: '/apartments/$unitId',
@@ -99,6 +111,8 @@ export interface FileRoutesByFullPath {
   '/inquiry': typeof InquiryRoute
   '/projects': typeof ProjectsRouteWithChildren
   '/site-visit': typeof SiteVisitRoute
+  '/admin/bookings': typeof AdminBookingsRoute
+  '/admin/leads': typeof AdminLeadsRoute
   '/projects/$slug': typeof ProjectsSlugRouteWithChildren
   '/projects/completed': typeof ProjectsCompletedRoute
   '/projects/running': typeof ProjectsRunningRoute
@@ -113,6 +127,8 @@ export interface FileRoutesByTo {
   '/inquiry': typeof InquiryRoute
   '/projects': typeof ProjectsRouteWithChildren
   '/site-visit': typeof SiteVisitRoute
+  '/admin/bookings': typeof AdminBookingsRoute
+  '/admin/leads': typeof AdminLeadsRoute
   '/projects/$slug': typeof ProjectsSlugRouteWithChildren
   '/projects/completed': typeof ProjectsCompletedRoute
   '/projects/running': typeof ProjectsRunningRoute
@@ -129,6 +145,8 @@ export interface FileRoutesById {
   '/inquiry': typeof InquiryRoute
   '/projects': typeof ProjectsRouteWithChildren
   '/site-visit': typeof SiteVisitRoute
+  '/admin/bookings': typeof AdminBookingsRoute
+  '/admin/leads': typeof AdminLeadsRoute
   '/projects/$slug': typeof ProjectsSlugRouteWithChildren
   '/projects/completed': typeof ProjectsCompletedRoute
   '/projects/running': typeof ProjectsRunningRoute
@@ -146,6 +164,8 @@ export interface FileRouteTypes {
     | '/inquiry'
     | '/projects'
     | '/site-visit'
+    | '/admin/bookings'
+    | '/admin/leads'
     | '/projects/$slug'
     | '/projects/completed'
     | '/projects/running'
@@ -160,6 +180,8 @@ export interface FileRouteTypes {
     | '/inquiry'
     | '/projects'
     | '/site-visit'
+    | '/admin/bookings'
+    | '/admin/leads'
     | '/projects/$slug'
     | '/projects/completed'
     | '/projects/running'
@@ -175,6 +197,8 @@ export interface FileRouteTypes {
     | '/inquiry'
     | '/projects'
     | '/site-visit'
+    | '/admin/bookings'
+    | '/admin/leads'
     | '/projects/$slug'
     | '/projects/completed'
     | '/projects/running'
@@ -279,6 +303,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProjectsSlugRouteImport
       parentRoute: typeof ProjectsRoute
     }
+    '/admin/leads': {
+      id: '/admin/leads'
+      path: '/leads'
+      fullPath: '/admin/leads'
+      preLoaderRoute: typeof AdminLeadsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/bookings': {
+      id: '/admin/bookings'
+      path: '/bookings'
+      fullPath: '/admin/bookings'
+      preLoaderRoute: typeof AdminBookingsRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/projects/$slug/apartments/$unitId': {
       id: '/projects/$slug/apartments/$unitId'
       path: '/apartments/$unitId'
@@ -290,10 +328,14 @@ declare module '@tanstack/react-router' {
 }
 
 interface AdminRouteChildren {
+  AdminBookingsRoute: typeof AdminBookingsRoute
+  AdminLeadsRoute: typeof AdminLeadsRoute
   AdminIndexRoute: typeof AdminIndexRoute
 }
 
 const AdminRouteChildren: AdminRouteChildren = {
+  AdminBookingsRoute: AdminBookingsRoute,
+  AdminLeadsRoute: AdminLeadsRoute,
   AdminIndexRoute: AdminIndexRoute,
 }
 
