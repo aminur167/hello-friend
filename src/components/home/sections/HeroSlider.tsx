@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight, ArrowRight, PlayCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
+import heroTower from "@/assets/hero-tower.jpg";
+import heroInterior from "@/assets/hero-interior.jpg";
+import heroCity from "@/assets/hero-city.jpg";
+import heroConstruction from "@/assets/hero-construction.jpg";
+import heroFamily from "@/assets/hero-family.jpg";
 
 type Slide = {
   kicker: string;
@@ -8,8 +13,9 @@ type Slide = {
   titleBn: string;
   subtitle: string;
   cta: string;
-  gradient: string;
+  image: string;
   accent: string;
+  href: string;
 };
 
 const slides: Slide[] = [
@@ -20,9 +26,9 @@ const slides: Slide[] = [
     subtitle:
       "Handcrafted residences engineered with international standards, premium finishes and timeless architecture.",
     cta: "Explore Projects",
-    gradient:
-      "radial-gradient(120% 80% at 20% 20%, oklch(0.36 0.16 265) 0%, oklch(0.14 0.08 265) 55%, oklch(0.08 0.04 265) 100%)",
+    image: heroTower,
     accent: "oklch(0.74 0.15 82)",
+    href: "/projects",
   },
   {
     kicker: "Now Booking",
@@ -31,9 +37,9 @@ const slides: Slide[] = [
     subtitle:
       "Limited 3 & 4 bedroom sky homes with panoramic city views in the heart of Rangpur.",
     cta: "Book a Site Visit",
-    gradient:
-      "radial-gradient(110% 90% at 80% 30%, oklch(0.48 0.13 155) 0%, oklch(0.18 0.08 220) 55%, oklch(0.08 0.03 260) 100%)",
+    image: heroInterior,
     accent: "oklch(0.85 0.16 82)",
+    href: "/site-visit",
   },
   {
     kicker: "Commercial Landmark",
@@ -42,9 +48,9 @@ const slides: Slide[] = [
     subtitle:
       "Grade-A commercial floors, retail arcades and boutique showrooms crafted for growth.",
     cta: "View Commercial",
-    gradient:
-      "radial-gradient(120% 80% at 50% 20%, oklch(0.30 0.10 40) 0%, oklch(0.14 0.05 40) 55%, oklch(0.08 0.02 260) 100%)",
+    image: heroCity,
     accent: "oklch(0.80 0.16 60)",
+    href: "/projects",
   },
   {
     kicker: "Prime Land",
@@ -53,9 +59,9 @@ const slides: Slide[] = [
     subtitle:
       "Curated land plots with clear title, planned infrastructure and long-term appreciation.",
     cta: "See Available Plots",
-    gradient:
-      "radial-gradient(110% 90% at 20% 80%, oklch(0.34 0.12 155) 0%, oklch(0.16 0.06 220) 55%, oklch(0.08 0.03 260) 100%)",
+    image: heroConstruction,
     accent: "oklch(0.82 0.16 130)",
+    href: "/inquiry",
   },
   {
     kicker: "Investor Program",
@@ -64,9 +70,9 @@ const slides: Slide[] = [
     subtitle:
       "Structured returns, transparent handover timelines and full-service asset management.",
     cta: "Talk to an Advisor",
-    gradient:
-      "radial-gradient(120% 80% at 70% 60%, oklch(0.32 0.15 265) 0%, oklch(0.16 0.08 265) 55%, oklch(0.08 0.03 260) 100%)",
+    image: heroFamily,
     accent: "oklch(0.78 0.15 82)",
+    href: "/booking",
   },
 ];
 
@@ -102,22 +108,19 @@ export function HeroSlider() {
             i === active ? "opacity-100" : "opacity-0 pointer-events-none",
           )}
           style={{
-            background: s.gradient,
             transform: `translateY(${scrollY * 0.25}px) scale(${1 + scrollY * 0.0002})`,
             willChange: "transform",
           }}
         >
-          {/* Parallax pattern */}
-          <div
-            className="absolute inset-0 opacity-[0.15] mix-blend-screen"
-            style={{
-              backgroundImage:
-                "linear-gradient(115deg, transparent 40%, rgba(255,255,255,.3) 50%, transparent 60%)",
-              backgroundSize: "220% 100%",
-              backgroundPosition: `${(i === active ? 0 : 100) - scrollY * 0.05}% 0`,
-            }}
+          <img
+            src={s.image}
+            alt=""
+            aria-hidden
+            loading={i === 0 ? "eager" : "lazy"}
+            className="absolute inset-0 h-full w-full object-cover"
           />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.55)_100%)]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-brand-navy/85 via-brand-navy/55 to-brand-navy/25" />
+          <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/85 via-transparent to-brand-navy/30" />
         </div>
       ))}
 
@@ -154,7 +157,7 @@ export function HeroSlider() {
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-3">
                 <a
-                  href="#featured"
+                  href={s.href}
                   className="group inline-flex items-center gap-2 rounded-md bg-brand-gold px-6 py-3 text-sm font-semibold text-brand-gold-foreground shadow-gold transition-transform hover:-translate-y-0.5"
                 >
                   {s.cta}
