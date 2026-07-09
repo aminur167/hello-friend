@@ -43,10 +43,10 @@ function AboutPage() {
   return (
     <SiteLayout>
       <FormPageHero
-        kicker="Who We Are"
-        title="Craftsmanship carved into Rangpur's skyline"
-        titleBn="রংপুরের আকাশরেখায় খোদাই করা কারিগরি"
-        subtitle="North End Construction Ltd is a full-service real estate developer with 15+ years of building homes, offices and lives — one honest square foot at a time."
+        kicker="আমাদের সম্পর্কে"
+        title="রংপুরের আকাশরেখায় খোদাই করা কারিগরি"
+        titleBn="বিশ্বাস, উৎকর্ষ ও উত্তরাধিকারের ১৫ বছর"
+        subtitle="নর্থ এন্ড কনস্ট্রাকশন লিমিটেড — উত্তরাঞ্চলের অন্যতম বিশ্বস্ত রিয়েল এস্টেট ডেভেলপার। প্রতিটি ইটে সততা, প্রতিটি বর্গফুটে প্রকৌশল উৎকর্ষ, এবং প্রতিটি চাবি হস্তান্তরে ১,২০০+ পরিবারের নির্ভরতা।"
         image={heroTower}
       />
 
