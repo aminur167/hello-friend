@@ -25,8 +25,8 @@ export function Navbar() {
     <div
       className="sticky top-0 z-50 w-full animate-fade-in"
       style={{
-        paddingTop: scrolled ? 8 : 16,
-        paddingBottom: scrolled ? 8 : 12,
+        paddingTop: scrolled ? 6 : 12,
+        paddingBottom: scrolled ? 6 : 8,
         transition: "padding 380ms cubic-bezier(0.16,1,0.3,1)",
       }}
     >
@@ -40,8 +40,8 @@ export function Navbar() {
           borderRadius: 16,
           gridTemplateColumns: "1fr auto 1fr",
           columnGap: 24,
-          background: scrolled ? "rgba(11,25,60,0.58)" : "rgba(255,255,255,0.08)",
-          backdropFilter: scrolled ? "blur(30px) saturate(150%)" : "blur(24px) saturate(140%)",
+          background: scrolled ? "rgba(11,25,60,0.58)" : "rgba(255,255,255,0.10)",
+          backdropFilter: scrolled ? "blur(30px) saturate(150%)" : "blur(20px) saturate(140%)",
           border: "1px solid rgba(255,255,255,0.12)",
           boxShadow: scrolled
             ? "0 14px 44px rgba(0,0,0,0.28)"
