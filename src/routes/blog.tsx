@@ -38,10 +38,10 @@ function BlogPage() {
   return (
     <SiteLayout>
       <FormPageHero
-        kicker="Blog & Insights"
-        title="Real-estate wisdom, plainly written"
-        titleBn="সহজ ভাষায় রিয়েল এস্টেট জ্ঞান"
-        subtitle="Market outlooks, buyer checklists and construction deep-dives — written by the same people who design and deliver our projects."
+        kicker="ব্লগ ও ইনসাইট"
+        breadcrumb="ব্লগ"
+        title="সহজ ভাষায় রিয়েল এস্টেটের গভীর অন্তর্দৃষ্টি"
+        subtitle="মার্কেট আউটলুক, ক্রেতার চেকলিস্ট ও নির্মাণ কৌশল — লিখেছেন সেই বিশেষজ্ঞরা যারা আমাদের প্রকল্প ডিজাইন করেন ও হস্তান্তর করেন।"
         image={heroCity}
       />
 
