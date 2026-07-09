@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SiteVisitRouteImport } from './routes/site-visit'
+import { Route as ServicesRouteImport } from './routes/services'
 import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as InquiryRouteImport } from './routes/inquiry'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -51,6 +52,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const SiteVisitRoute = SiteVisitRouteImport.update({
   id: '/site-visit',
   path: '/site-visit',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProjectsRoute = ProjectsRouteImport.update({
@@ -219,6 +225,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/inquiry': typeof InquiryRoute
   '/projects': typeof ProjectsRouteWithChildren
+  '/services': typeof ServicesRoute
   '/site-visit': typeof SiteVisitRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin/activity': typeof AdminActivityRoute
@@ -253,6 +260,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/inquiry': typeof InquiryRoute
   '/projects': typeof ProjectsRouteWithChildren
+  '/services': typeof ServicesRoute
   '/site-visit': typeof SiteVisitRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin/activity': typeof AdminActivityRoute
@@ -289,6 +297,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/inquiry': typeof InquiryRoute
   '/projects': typeof ProjectsRouteWithChildren
+  '/services': typeof ServicesRoute
   '/site-visit': typeof SiteVisitRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin/activity': typeof AdminActivityRoute
@@ -326,6 +335,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/inquiry'
     | '/projects'
+    | '/services'
     | '/site-visit'
     | '/sitemap.xml'
     | '/admin/activity'
@@ -360,6 +370,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/inquiry'
     | '/projects'
+    | '/services'
     | '/site-visit'
     | '/sitemap.xml'
     | '/admin/activity'
@@ -395,6 +406,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/inquiry'
     | '/projects'
+    | '/services'
     | '/site-visit'
     | '/sitemap.xml'
     | '/admin/activity'
@@ -431,6 +443,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   InquiryRoute: typeof InquiryRoute
   ProjectsRoute: typeof ProjectsRouteWithChildren
+  ServicesRoute: typeof ServicesRoute
   SiteVisitRoute: typeof SiteVisitRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
@@ -449,6 +462,13 @@ declare module '@tanstack/react-router' {
       path: '/site-visit'
       fullPath: '/site-visit'
       preLoaderRoute: typeof SiteVisitRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/projects': {
@@ -754,6 +774,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   InquiryRoute: InquiryRoute,
   ProjectsRoute: ProjectsRouteWithChildren,
+  ServicesRoute: ServicesRoute,
   SiteVisitRoute: SiteVisitRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
