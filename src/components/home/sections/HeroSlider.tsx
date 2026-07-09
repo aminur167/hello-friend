@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight, ArrowRight, PlayCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
-import heroTower from "@/assets/hero-tower.jpg";
-import heroInterior from "@/assets/hero-interior.jpg";
-import heroCity from "@/assets/hero-city.jpg";
-import heroConstruction from "@/assets/hero-construction.jpg";
-import heroFamily from "@/assets/hero-family.jpg";
+import slide1 from "@/assets/projects/14.29.52_1.jpg.asset.json";   // tall brick tower, blue sky
+import slide2 from "@/assets/projects/14.29.51_1.jpg.asset.json";   // luxury tower at night
+import slide3 from "@/assets/projects/14-29-49.jpg.asset.json";     // sky vista tower
+import slide4 from "@/assets/projects/14-29-55_1.jpg.asset.json";   // rooftop gardens aerial
+import slide5 from "@/assets/projects/14-29-50.jpg.asset.json";     // flamingo residence
 
 type Slide = {
   kicker: string;
@@ -26,7 +26,7 @@ const slides: Slide[] = [
     subtitle:
       "Handcrafted residences engineered with international standards, premium finishes and timeless architecture.",
     cta: "Explore Projects",
-    image: heroTower,
+    image: slide1.url,
     accent: "oklch(0.74 0.15 82)",
     href: "/projects",
   },
@@ -37,7 +37,7 @@ const slides: Slide[] = [
     subtitle:
       "Limited 3 & 4 bedroom sky homes with panoramic city views in the heart of Rangpur.",
     cta: "Book a Site Visit",
-    image: heroInterior,
+    image: slide2.url,
     accent: "oklch(0.85 0.16 82)",
     href: "/site-visit",
   },
@@ -48,7 +48,7 @@ const slides: Slide[] = [
     subtitle:
       "Grade-A commercial floors, retail arcades and boutique showrooms crafted for growth.",
     cta: "View Commercial",
-    image: heroCity,
+    image: slide3.url,
     accent: "oklch(0.80 0.16 60)",
     href: "/projects",
   },
@@ -59,7 +59,7 @@ const slides: Slide[] = [
     subtitle:
       "Curated land plots with clear title, planned infrastructure and long-term appreciation.",
     cta: "See Available Plots",
-    image: heroConstruction,
+    image: slide4.url,
     accent: "oklch(0.82 0.16 130)",
     href: "/inquiry",
   },
@@ -70,7 +70,7 @@ const slides: Slide[] = [
     subtitle:
       "Structured returns, transparent handover timelines and full-service asset management.",
     cta: "Talk to an Advisor",
-    image: heroFamily,
+    image: slide5.url,
     accent: "oklch(0.78 0.15 82)",
     href: "/booking",
   },
