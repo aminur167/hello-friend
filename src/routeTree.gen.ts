@@ -15,7 +15,9 @@ import { Route as InquiryRouteImport } from './routes/inquiry'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as BookingRouteImport } from './routes/booking'
 import { Route as AuthRouteImport } from './routes/auth'
+import { Route as AdminRouteImport } from './routes/admin'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as ProjectsRunningRouteImport } from './routes/projects.running'
 import { Route as ProjectsCompletedRouteImport } from './routes/projects.completed'
 import { Route as ProjectsSlugRouteImport } from './routes/projects.$slug'
@@ -51,10 +53,20 @@ const AuthRoute = AuthRouteImport.update({
   path: '/auth',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
+} as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AdminRoute,
 } as any)
 const ProjectsRunningRoute = ProjectsRunningRouteImport.update({
   id: '/running',
@@ -80,6 +92,7 @@ const ProjectsSlugApartmentsUnitIdRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRouteWithChildren
   '/auth': typeof AuthRoute
   '/booking': typeof BookingRoute
   '/contact': typeof ContactRoute
@@ -89,6 +102,7 @@ export interface FileRoutesByFullPath {
   '/projects/$slug': typeof ProjectsSlugRouteWithChildren
   '/projects/completed': typeof ProjectsCompletedRoute
   '/projects/running': typeof ProjectsRunningRoute
+  '/admin/': typeof AdminIndexRoute
   '/projects/$slug/apartments/$unitId': typeof ProjectsSlugApartmentsUnitIdRoute
 }
 export interface FileRoutesByTo {
@@ -102,11 +116,13 @@ export interface FileRoutesByTo {
   '/projects/$slug': typeof ProjectsSlugRouteWithChildren
   '/projects/completed': typeof ProjectsCompletedRoute
   '/projects/running': typeof ProjectsRunningRoute
+  '/admin': typeof AdminIndexRoute
   '/projects/$slug/apartments/$unitId': typeof ProjectsSlugApartmentsUnitIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin': typeof AdminRouteWithChildren
   '/auth': typeof AuthRoute
   '/booking': typeof BookingRoute
   '/contact': typeof ContactRoute
@@ -116,12 +132,14 @@ export interface FileRoutesById {
   '/projects/$slug': typeof ProjectsSlugRouteWithChildren
   '/projects/completed': typeof ProjectsCompletedRoute
   '/projects/running': typeof ProjectsRunningRoute
+  '/admin/': typeof AdminIndexRoute
   '/projects/$slug/apartments/$unitId': typeof ProjectsSlugApartmentsUnitIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/admin'
     | '/auth'
     | '/booking'
     | '/contact'
@@ -131,6 +149,7 @@ export interface FileRouteTypes {
     | '/projects/$slug'
     | '/projects/completed'
     | '/projects/running'
+    | '/admin/'
     | '/projects/$slug/apartments/$unitId'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -144,10 +163,12 @@ export interface FileRouteTypes {
     | '/projects/$slug'
     | '/projects/completed'
     | '/projects/running'
+    | '/admin'
     | '/projects/$slug/apartments/$unitId'
   id:
     | '__root__'
     | '/'
+    | '/admin'
     | '/auth'
     | '/booking'
     | '/contact'
@@ -157,11 +178,13 @@ export interface FileRouteTypes {
     | '/projects/$slug'
     | '/projects/completed'
     | '/projects/running'
+    | '/admin/'
     | '/projects/$slug/apartments/$unitId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRoute: typeof AdminRouteWithChildren
   AuthRoute: typeof AuthRoute
   BookingRoute: typeof BookingRoute
   ContactRoute: typeof ContactRoute
@@ -214,12 +237,26 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/admin/': {
+      id: '/admin/'
+      path: '/'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof AdminRoute
     }
     '/projects/running': {
       id: '/projects/running'
@@ -252,6 +289,16 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface AdminRouteChildren {
+  AdminIndexRoute: typeof AdminIndexRoute
+}
+
+const AdminRouteChildren: AdminRouteChildren = {
+  AdminIndexRoute: AdminIndexRoute,
+}
+
+const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
+
 interface ProjectsSlugRouteChildren {
   ProjectsSlugApartmentsUnitIdRoute: typeof ProjectsSlugApartmentsUnitIdRoute
 }
@@ -282,6 +329,7 @@ const ProjectsRouteWithChildren = ProjectsRoute._addFileChildren(
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRoute: AdminRouteWithChildren,
   AuthRoute: AuthRoute,
   BookingRoute: BookingRoute,
   ContactRoute: ContactRoute,
