@@ -6,10 +6,10 @@ import img3 from "@/assets/projects/14.29.52_1.jpg.asset.json";
 import img4 from "@/assets/projects/14-29-50.jpg.asset.json";
 
 const completed = [
-  { name: "North End Prime", loc: "Central Road", image: img1.url, year: 2023 },
-  { name: "Gold Leaf Tower", loc: "Grand Hotel Road", image: img2.url, year: 2022 },
-  { name: "Emerald Court", loc: "Kachari Bazar", image: img3.url, year: 2021 },
-  { name: "Northern Heights", loc: "Modern More", image: img4.url, year: 2020 },
+  { name: "North End Lake View Classic", loc: "Central Road", image: img1.url, year: 2023 },
+  { name: "North End Flamingo Court", loc: "Grand Hotel Road", image: img2.url, year: 2022 },
+  { name: "North End Legend Residency", loc: "Kachari Bazar", image: img3.url, year: 2021 },
+  { name: "North End Royal Heritage", loc: "Modern More", image: img4.url, year: 2020 },
 ];
 
 export function CompletedProjects() {
