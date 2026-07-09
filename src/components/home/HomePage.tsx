@@ -10,7 +10,6 @@ import { ConstructionQuality } from "./sections/ConstructionQuality";
 import { CustomerReviews } from "./sections/CustomerReviews";
 import { Statistics } from "./sections/Statistics";
 import { InvestmentBenefits } from "./sections/InvestmentBenefits";
-import { CompanyVideo } from "./sections/CompanyVideo";
 import { LatestBlog } from "./sections/LatestBlog";
 import { BookingCTA } from "./sections/BookingCTA";
 import { GoogleMap } from "./sections/GoogleMap";
@@ -30,7 +29,6 @@ export function HomePage() {
       <CustomerReviews />
       <Statistics />
       <InvestmentBenefits />
-      <CompanyVideo />
       <LatestBlog />
       <BookingCTA />
       <GoogleMap />
