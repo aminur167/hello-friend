@@ -1,42 +1,63 @@
+import { Link } from "@tanstack/react-router";
+import { ChevronRight } from "lucide-react";
+
 export function ProjectsHeader({
   kicker,
   title,
   subtitle,
   image,
+  breadcrumb,
 }: {
   kicker: string;
   title: string;
   subtitle?: string;
   image?: string;
+  breadcrumb?: string;
 }) {
   return (
     <section className="relative overflow-hidden bg-hero-gradient text-white">
       {image && (
         <div
-          className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-40"
+          className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-45"
           style={{ backgroundImage: `url(${image})` }}
         />
       )}
       {image && (
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-brand-navy/90 via-brand-navy/70 to-brand-navy/40" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-brand-navy via-brand-navy/85 to-brand-navy/40" />
       )}
       <div
-        className="pointer-events-none absolute inset-0 opacity-30"
+        className="pointer-events-none absolute inset-0 opacity-40"
         style={{
           backgroundImage:
-            "radial-gradient(circle at 20% 30%, oklch(0.74 0.15 82 / 0.5), transparent 40%), radial-gradient(circle at 80% 70%, oklch(0.51 0.13 155 / 0.35), transparent 45%)",
+            "radial-gradient(600px circle at 15% 25%, oklch(0.74 0.15 82 / 0.22), transparent 55%)",
         }}
       />
       <div className="container-page relative pb-16 pt-32 md:pb-24 md:pt-40">
-        <span className="text-xs font-semibold uppercase tracking-[0.24em] text-brand-gold">
-          {kicker}
-        </span>
-        <h1 className="mt-3 max-w-3xl text-4xl font-semibold leading-tight md:text-5xl lg:text-6xl">
-          {title}
-        </h1>
-        {subtitle && (
-          <p className="mt-4 max-w-2xl text-white/75 md:text-lg">{subtitle}</p>
-        )}
+        <nav
+          aria-label="Breadcrumb"
+          className="flex items-center gap-2 font-bangla text-sm text-white/70"
+        >
+          <Link to="/" className="hover:text-brand-gold transition-colors">
+            হোম
+          </Link>
+          <ChevronRight className="h-3.5 w-3.5 text-white/40" />
+          <span className="text-white/90">{breadcrumb ?? kicker}</span>
+        </nav>
+
+        <div className="mt-6">
+          <span className="inline-flex items-center gap-2 rounded-full border border-brand-gold/50 bg-brand-gold/10 px-4 py-1.5 font-bangla text-xs font-semibold tracking-wide text-brand-gold backdrop-blur-sm">
+            <span className="h-1.5 w-1.5 rounded-full bg-brand-gold" />
+            {kicker}
+          </span>
+          <h1 className="mt-6 max-w-3xl font-bangla text-4xl font-extrabold leading-[1.2] tracking-tight md:text-5xl lg:text-[3.5rem]">
+            {title}
+          </h1>
+          {subtitle && (
+            <p className="mt-5 max-w-2xl font-bangla text-[15px] leading-[1.9] text-white/75 md:text-lg">
+              {subtitle}
+            </p>
+          )}
+        </div>
       </div>
     </section>
   );
