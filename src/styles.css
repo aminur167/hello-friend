@@ -504,3 +504,28 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* ===== Global scroll polish =====
+ * Hide visible scrollbars across the whole app while keeping scroll
+ * behavior intact on mouse, trackpad, and touch. Also guard against
+ * accidental horizontal overflow so mobile/tablet layouts stay clean.
+ */
+html, body {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: none;
+  scrollbar-width: none;         /* Firefox */
+  -ms-overflow-style: none;       /* IE/Edge legacy */
+}
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+*::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;                  /* Chrome, Safari, new Edge */
+}
+*, *::before, *::after {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
