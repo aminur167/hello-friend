@@ -6,10 +6,10 @@ import img3 from "@/assets/projects/14-29-55.jpg.asset.json";
 import img4 from "@/assets/projects/14-29-55_1.jpg.asset.json";
 
 const ongoing = [
-  { name: "North End Horizon", loc: "Medical More", image: img1.url, progress: 72, hand: "Dec 2026", units: "48 units" },
-  { name: "Gold Crest Residences", loc: "Jail Road", image: img2.url, progress: 45, hand: "Jun 2027", units: "36 units" },
-  { name: "Greenline Terrace", loc: "Betpotti", image: img3.url, progress: 60, hand: "Mar 2027", units: "24 units" },
-  { name: "Northern Boulevard", loc: "Modern More", image: img4.url, progress: 30, hand: "Oct 2027", units: "60 units" },
+  { name: "North End Legend Park", loc: "Medical More", image: img1.url, progress: 72, hand: "Dec 2026", units: "48 units" },
+  { name: "North End Flamingo", loc: "Jail Road", image: img2.url, progress: 45, hand: "Jun 2027", units: "36 units" },
+  { name: "North End Royal House II", loc: "Betpotti", image: img3.url, progress: 60, hand: "Mar 2027", units: "24 units" },
+  { name: "North End Sky View II", loc: "Modern More", image: img4.url, progress: 30, hand: "Oct 2027", units: "60 units" },
 ];
 
 export function OngoingProjects() {

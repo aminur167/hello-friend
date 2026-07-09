@@ -6,7 +6,7 @@ import img3 from "@/assets/projects/14.29.51.jpg.asset.json";
 
 const projects = [
   {
-    name: "North End Skyline",
+    name: "North End Royal House",
     location: "Dhap, Rangpur",
     type: "Residential Tower",
     size: "1,650 – 2,400 sqft",
@@ -14,15 +14,15 @@ const projects = [
     image: img1.url,
   },
   {
-    name: "Gold Crest Arcade",
+    name: "North End Sky View",
     location: "Station Road",
-    type: "Commercial",
-    size: "Retail + Office",
+    type: "Residential Tower",
+    size: "1,400 – 2,100 sqft",
     tag: "Now Selling",
     image: img2.url,
   },
   {
-    name: "Greenline Homes",
+    name: "North End Lake View",
     location: "Betpotti",
     type: "Boutique Residences",
     size: "1,200 – 1,800 sqft",
