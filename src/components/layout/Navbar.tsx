@@ -2,7 +2,6 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
-import { cn } from "@/lib/utils";
 import brandLogo from "@/assets/brand-logo.png.asset.json";
 
 const BRAND_BLUE = "#102B7A";
