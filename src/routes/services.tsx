@@ -20,12 +20,12 @@ export const Route = createFileRoute("/services")({
 });
 
 const services = [
-  { icon: Home, title: "Residential Apartments", body: "1, 2, 3 & 4-bedroom flats in Rangpur's prime corridors — designed for real families, priced for real budgets.", features: ["Ready-to-move & pre-launch", "Bank loan approved", "Modular kitchen & full interior"] },
-  { icon: Building2, title: "Commercial Complexes", body: "Retail, office and mixed-use developments engineered for tenant demand and long-term rental yield.", features: ["Ground + 10 typical", "3-phase power & backup", "Dedicated parking floors"] },
-  { icon: Landmark, title: "Land Development", body: "Master-planned plotting projects with roads, drainage, boundary and mutation ready before handover.", features: ["3, 5, 10 katha plots", "Registered mutation", "Full utility connections"] },
-  { icon: HardHat, title: "Turnkey Construction", body: "Own the land? We handle everything from soil test to key handover — fixed price, fixed timeline.", features: ["Design + build contract", "Milestone-based payments", "Third-party quality audit"] },
-  { icon: Ruler, title: "Architecture & Interior", body: "In-house architects and interior designers create spaces that photograph beautifully and live even better.", features: ["3D walkthrough included", "Vastu-conscious layouts", "Custom joinery workshop"] },
-  { icon: Wrench, title: "Facility Management", body: "Post-handover management for your building — security, cleaning, lifts, generator and finance.", features: ["24/7 on-site team", "Digital service book", "Annual reserve fund audit"] },
+  { icon: Home, tag: "০১", title: "আবাসিক অ্যাপার্টমেন্ট", body: "রংপুরের অভিজাত এলাকায় ১, ২, ৩ ও ৪ বেডরুমের ফ্ল্যাট — পরিবারের জন্য পরিকল্পিত, বাজেটের সাথে সামঞ্জস্যপূর্ণ।", features: ["রেডি ও প্রি-লঞ্চ ইউনিট", "সকল ব্যাংক লোন অনুমোদিত", "মডুলার কিচেন ও ফুল ইন্টেরিয়র"] },
+  { icon: Building2, tag: "০২", title: "বাণিজ্যিক কমপ্লেক্স", body: "রিটেইল, অফিস ও মিক্সড-ইউজ ডেভেলপমেন্ট — দীর্ঘমেয়াদি ভাড়া ও ভাড়াটিয়া চাহিদার কথা মাথায় রেখে ইঞ্জিনিয়ারড।", features: ["গ্রাউন্ড + ১০ তলা টিপিক্যাল", "৩-ফেজ পাওয়ার ও ব্যাকআপ", "ডেডিকেটেড পার্কিং ফ্লোর"] },
+  { icon: Landmark, tag: "০৩", title: "ল্যান্ড ডেভেলপমেন্ট", body: "মাস্টার-প্ল্যানড প্লটিং প্রকল্প — হস্তান্তরের আগেই রাস্তা, ড্রেনেজ, সীমানা ও নামজারি সম্পন্ন।", features: ["৩, ৫, ১০ কাঠা প্লট", "রেজিস্টার্ড নামজারি", "সম্পূর্ণ ইউটিলিটি সংযোগ"] },
+  { icon: HardHat, tag: "০৪", title: "টার্নকি নির্মাণ", body: "নিজের জমি আছে? সয়েল টেস্ট থেকে চাবি হস্তান্তর — নির্দিষ্ট মূল্যে, নির্দিষ্ট সময়ে আমরাই সব সামলাই।", features: ["ডিজাইন + বিল্ড চুক্তি", "মাইলস্টোন-ভিত্তিক পেমেন্ট", "থার্ড-পার্টি কোয়ালিটি অডিট"] },
+  { icon: Ruler, tag: "০৫", title: "আর্কিটেকচার ও ইন্টেরিয়র", body: "আমাদের ইন-হাউস আর্কিটেক্ট ও ইন্টেরিয়র ডিজাইনারদের হাতে গড়া — ছবিতে যেমন সুন্দর, বাস্তবেও তেমনই আরামদায়ক।", features: ["থ্রিডি ওয়াকথ্রু সহ", "বাস্তু-সম্মত লেআউট", "কাস্টম কাঠের কাজের কারখানা"] },
+  { icon: Wrench, tag: "০৬", title: "ফ্যাসিলিটি ম্যানেজমেন্ট", body: "হস্তান্তরের পরও আমরা পাশে — সিকিউরিটি, ক্লিনিং, লিফট, জেনারেটর ও হিসাব-নিকাশ পূর্ণাঙ্গ ব্যবস্থাপনায়।", features: ["২৪/৭ অন-সাইট টিম", "ডিজিটাল সার্ভিস বুক", "বাৎসরিক রিজার্ভ ফান্ড অডিট"] },
 ];
 
 const process = [
@@ -48,25 +48,56 @@ function ServicesPage() {
 
       <section className="py-20 md:py-28">
         <div className="container-page">
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {services.map(({ icon: Icon, title, body, features }) => (
-              <article key={title} className="group flex flex-col rounded-2xl border border-border bg-card p-7 transition-all hover:border-brand-gold hover:shadow-elegant hover:-translate-y-1">
-                <div className="grid h-12 w-12 place-items-center rounded-xl bg-brand-gold/12 text-brand-gold">
-                  <Icon className="h-6 w-6" />
+          <div className="grid gap-7 md:grid-cols-2 lg:grid-cols-3">
+            {services.map(({ icon: Icon, tag, title, body, features }) => (
+              <article
+                key={title}
+                className="group relative flex flex-col overflow-hidden rounded-[28px] border border-border/70 bg-card p-8 shadow-[0_2px_12px_-6px_rgba(11,45,107,0.08)] transition-all duration-500 hover:-translate-y-2 hover:border-brand-gold/60 hover:shadow-[0_30px_60px_-20px_rgba(11,45,107,0.35)]"
+              >
+                {/* Gold gradient top rail */}
+                <span className="absolute inset-x-0 top-0 h-[3px] bg-gradient-to-r from-transparent via-brand-gold to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                {/* Ambient corner glow */}
+                <span className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-brand-gold/10 blur-3xl opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+
+                <div className="flex items-start justify-between">
+                  <div className="relative grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-brand-gold/20 via-brand-gold/10 to-transparent ring-1 ring-brand-gold/25 text-brand-gold transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
+                    <Icon className="h-6 w-6" strokeWidth={1.6} />
+                  </div>
+                  <span className="font-hind text-xs font-bold tracking-[0.25em] text-brand-gold/70">
+                    {tag}
+                  </span>
                 </div>
-                <h3 className="mt-6 text-xl font-semibold text-foreground">{title}</h3>
-                <p className="mt-3 text-sm text-muted-foreground">{body}</p>
-                <ul className="mt-5 space-y-2 text-sm text-foreground/80">
+
+                <h3 className="mt-7 font-hind text-2xl font-bold leading-tight text-brand-navy">
+                  {title}
+                </h3>
+                <div className="mt-3 h-px w-10 bg-gradient-to-r from-brand-gold to-transparent" />
+                <p className="mt-4 font-hind text-[15px] leading-relaxed text-muted-foreground">
+                  {body}
+                </p>
+
+                <ul className="mt-6 space-y-2.5 font-hind text-[14px] text-foreground/85">
                   {features.map((f) => (
-                    <li key={f} className="flex items-start gap-2">
-                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-brand-gold" />
-                      {f}
+                    <li key={f} className="flex items-start gap-2.5">
+                      <span className="mt-1.5 grid h-4 w-4 shrink-0 place-items-center rounded-full bg-brand-gold/15">
+                        <span className="h-1.5 w-1.5 rounded-full bg-brand-gold" />
+                      </span>
+                      <span>{f}</span>
                     </li>
                   ))}
                 </ul>
-                <Link to="/contact" className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-navy transition-colors group-hover:text-brand-gold">
-                  Discuss this service <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Link>
+
+                <div className="mt-auto pt-7">
+                  <Link
+                    to="/contact"
+                    className="inline-flex items-center gap-2 font-hind text-sm font-semibold text-brand-navy transition-colors group-hover:text-brand-gold"
+                  >
+                    এই সেবা নিয়ে আলোচনা করুন
+                    <span className="grid h-7 w-7 place-items-center rounded-full bg-brand-navy/5 transition-all duration-300 group-hover:bg-brand-gold group-hover:text-white group-hover:translate-x-1">
+                      <ArrowRight className="h-3.5 w-3.5" />
+                    </span>
+                  </Link>
+                </div>
               </article>
             ))}
           </div>
