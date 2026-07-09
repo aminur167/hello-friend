@@ -22,6 +22,7 @@ export function HomePage() {
       <HeroSlider />
       <TrustStrip />
       <FeaturedProjects />
+      <BuildingShowcase />
       <AboutCompany />
       <WhyChooseUs />
       <OngoingProjects />
