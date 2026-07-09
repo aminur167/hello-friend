@@ -11,7 +11,6 @@ export const Route = createFileRoute("/sitemap.xml")({
       GET: async () => {
         const staticPaths = [
           "/",
-          "/projects",
           "/projects/running",
           "/projects/completed",
           "/booking",

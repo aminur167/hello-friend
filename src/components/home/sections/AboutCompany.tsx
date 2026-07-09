@@ -39,7 +39,7 @@ export function AboutCompany() {
           </ul>
           <div className="mt-10 flex flex-wrap gap-3">
             <a href="/about" className="btn-premium">Learn more about us</a>
-            <a href="/projects" className="btn-outline-premium">Our portfolio</a>
+            <a href="/projects/running" className="btn-outline-premium">Our portfolio</a>
           </div>
         </div>
       </div>

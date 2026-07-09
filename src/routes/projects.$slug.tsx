@@ -32,7 +32,7 @@ export const Route = createFileRoute("/projects/$slug")({
       <div className="container-page py-32 text-center">
         <h1 className="text-3xl font-semibold">Project not found</h1>
         <p className="mt-2 text-muted-foreground">The project you’re looking for isn’t in our catalogue.</p>
-        <Link to="/projects" className="mt-6 inline-block rounded-md bg-primary px-6 py-3 text-primary-foreground">
+        <Link to="/projects/running" className="mt-6 inline-block rounded-md bg-primary px-6 py-3 text-primary-foreground">
           Back to all projects
         </Link>
       </div>
@@ -110,7 +110,7 @@ function ProjectDetail() {
           <div className="flex flex-wrap items-center gap-2 text-sm text-white/70">
             <Link to="/" className="hover:text-brand-gold">Home</Link>
             <span>/</span>
-            <Link to="/projects" className="hover:text-brand-gold">Projects</Link>
+            <Link to="/projects/running" className="hover:text-brand-gold">Projects</Link>
             <span>/</span>
             <span className="text-white">{p.name}</span>
           </div>

@@ -41,7 +41,6 @@ export const siteConfig = {
       { label: "আমাদের সম্পর্কে", to: "/about" },
       { label: "চলমান প্রকল্প", to: "/projects/running" },
       { label: "সম্পন্ন প্রকল্প", to: "/projects/completed" },
-      { label: "সকল প্রকল্প", to: "/projects" },
       { label: "ফ্ল্যাট", to: "/services" },
       { label: "গ্যালারি", to: "/gallery" },
       { label: "যোগাযোগ", to: "/contact" },
@@ -54,8 +53,8 @@ export const siteConfig = {
     ],
     footerCompany: [
       { label: "About Us", to: "/about" },
-      { label: "Ongoing Projects", to: "/projects" },
-      { label: "Completed Projects", to: "/projects" },
+      { label: "Ongoing Projects", to: "/projects/running" },
+      { label: "Completed Projects", to: "/projects/completed" },
       { label: "Careers", to: "/careers" },
     ],
   },

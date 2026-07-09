@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/layout/SiteLayout";
 import { ProjectFilters } from "@/components/projects/ProjectFilters";
 import { projects } from "@/lib/projects-data";
-import { ProjectsHeader } from "./projects";
+import { ProjectsHeader } from "@/components/projects/ProjectsHeader";
 import completedHero from "@/assets/projects/14-29-55.jpg.asset.json";
 
 export const Route = createFileRoute("/projects/completed")({

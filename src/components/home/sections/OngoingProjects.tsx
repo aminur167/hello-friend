@@ -60,7 +60,7 @@ export function OngoingProjects() {
                   </div>
                   <div className="mt-5 flex items-center justify-between border-t border-border pt-4 text-sm">
                     <span className="text-muted-foreground">{p.units}</span>
-                    <a href="/projects" className="inline-flex items-center gap-1 font-semibold text-primary group-hover:text-brand-gold">
+                    <a href="/projects/running" className="inline-flex items-center gap-1 font-semibold text-primary group-hover:text-brand-gold">
                       Book now <ArrowUpRight className="h-4 w-4" />
                     </a>
                   </div>

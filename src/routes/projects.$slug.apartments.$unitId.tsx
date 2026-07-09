@@ -30,7 +30,7 @@ export const Route = createFileRoute("/projects/$slug/apartments/$unitId")({
     <SiteLayout>
       <div className="container-page py-32 text-center">
         <h1 className="text-3xl font-semibold">Apartment not found</h1>
-        <Link to="/projects" className="mt-6 inline-block rounded-md bg-primary px-6 py-3 text-primary-foreground">
+        <Link to="/projects/running" className="mt-6 inline-block rounded-md bg-primary px-6 py-3 text-primary-foreground">
           Back to all projects
         </Link>
       </div>
@@ -98,7 +98,7 @@ function ApartmentDetail() {
       <section className="bg-brand-navy pt-32 pb-12 text-white md:pt-40 md:pb-16">
         <div className="container-page">
           <div className="flex flex-wrap items-center gap-2 text-sm text-white/70">
-            <Link to="/projects" className="hover:text-brand-gold">Projects</Link>
+            <Link to="/projects/running" className="hover:text-brand-gold">Projects</Link>
             <span>/</span>
             <Link to="/projects/$slug" params={{ slug: project.slug }} className="hover:text-brand-gold">
               {project.name}
