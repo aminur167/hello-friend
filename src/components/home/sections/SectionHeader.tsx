@@ -54,14 +54,18 @@ export function SectionHeader({
       )}
       <h2
         className={cn(
-          "luxe-display mt-5 text-balance text-[2rem] leading-[1.08] md:text-5xl lg:text-[3.25rem]",
+          "mt-5 text-balance",
           invert ? "text-white" : "text-foreground",
         )}
       >
         {titleBn ? (
-          <span className="font-bangla font-extrabold tracking-tight">{titleBn}</span>
+          <span className="font-bangla font-semibold tracking-[-0.02em] leading-[1.15] text-[1.9rem] md:text-[2.75rem] lg:text-[3.25rem]">
+            {titleBn}
+          </span>
         ) : (
-          renderTitle()
+          <span className="luxe-display text-[2rem] leading-[1.08] md:text-5xl lg:text-[3.25rem]">
+            {renderTitle()}
+          </span>
         )}
       </h2>
       {subtitle && (
