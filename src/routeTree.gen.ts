@@ -14,6 +14,7 @@ import { Route as SiteVisitRouteImport } from './routes/site-visit'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as InquiryRouteImport } from './routes/inquiry'
+import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as BookingRouteImport } from './routes/booking'
 import { Route as AuthRouteImport } from './routes/auth'
@@ -67,6 +68,11 @@ const ProjectsRoute = ProjectsRouteImport.update({
 const InquiryRoute = InquiryRouteImport.update({
   id: '/inquiry',
   path: '/inquiry',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GalleryRoute = GalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -223,6 +229,7 @@ export interface FileRoutesByFullPath {
   '/auth': typeof AuthRoute
   '/booking': typeof BookingRoute
   '/contact': typeof ContactRoute
+  '/gallery': typeof GalleryRoute
   '/inquiry': typeof InquiryRoute
   '/projects': typeof ProjectsRouteWithChildren
   '/services': typeof ServicesRoute
@@ -258,6 +265,7 @@ export interface FileRoutesByTo {
   '/auth': typeof AuthRoute
   '/booking': typeof BookingRoute
   '/contact': typeof ContactRoute
+  '/gallery': typeof GalleryRoute
   '/inquiry': typeof InquiryRoute
   '/projects': typeof ProjectsRouteWithChildren
   '/services': typeof ServicesRoute
@@ -295,6 +303,7 @@ export interface FileRoutesById {
   '/auth': typeof AuthRoute
   '/booking': typeof BookingRoute
   '/contact': typeof ContactRoute
+  '/gallery': typeof GalleryRoute
   '/inquiry': typeof InquiryRoute
   '/projects': typeof ProjectsRouteWithChildren
   '/services': typeof ServicesRoute
@@ -333,6 +342,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/booking'
     | '/contact'
+    | '/gallery'
     | '/inquiry'
     | '/projects'
     | '/services'
@@ -368,6 +378,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/booking'
     | '/contact'
+    | '/gallery'
     | '/inquiry'
     | '/projects'
     | '/services'
@@ -404,6 +415,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/booking'
     | '/contact'
+    | '/gallery'
     | '/inquiry'
     | '/projects'
     | '/services'
@@ -441,6 +453,7 @@ export interface RootRouteChildren {
   AuthRoute: typeof AuthRoute
   BookingRoute: typeof BookingRoute
   ContactRoute: typeof ContactRoute
+  GalleryRoute: typeof GalleryRoute
   InquiryRoute: typeof InquiryRoute
   ProjectsRoute: typeof ProjectsRouteWithChildren
   ServicesRoute: typeof ServicesRoute
@@ -483,6 +496,13 @@ declare module '@tanstack/react-router' {
       path: '/inquiry'
       fullPath: '/inquiry'
       preLoaderRoute: typeof InquiryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gallery': {
+      id: '/gallery'
+      path: '/gallery'
+      fullPath: '/gallery'
+      preLoaderRoute: typeof GalleryRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -772,6 +792,7 @@ const rootRouteChildren: RootRouteChildren = {
   AuthRoute: AuthRoute,
   BookingRoute: BookingRoute,
   ContactRoute: ContactRoute,
+  GalleryRoute: GalleryRoute,
   InquiryRoute: InquiryRoute,
   ProjectsRoute: ProjectsRouteWithChildren,
   ServicesRoute: ServicesRoute,
