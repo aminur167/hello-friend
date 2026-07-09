@@ -41,6 +41,7 @@ export const siteConfig = {
       { label: "আমাদের সম্পর্কে", to: "/about" },
       { label: "চলমান প্রকল্প", to: "/projects/running" },
       { label: "সম্পন্ন প্রকল্প", to: "/projects/completed" },
+      { label: "জমি শেয়ার", to: "/land-share" },
       { label: "ফ্ল্যাট", to: "/services" },
       { label: "গ্যালারি", to: "/gallery" },
       { label: "যোগাযোগ", to: "/contact" },
