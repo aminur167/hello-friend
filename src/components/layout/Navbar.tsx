@@ -25,8 +25,9 @@ export function Navbar() {
     <div
       className="sticky top-0 z-50 w-full animate-fade-in"
       style={{
-        paddingTop: scrolled ? 6 : 12,
+        paddingTop: 0,
         paddingBottom: scrolled ? 6 : 8,
+        marginTop: -6,
         transition: "padding 380ms cubic-bezier(0.16,1,0.3,1)",
       }}
     >
