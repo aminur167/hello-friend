@@ -50,59 +50,6 @@ function AboutPage() {
         image={heroTower}
       />
 
-      <section className="py-20 md:py-28">
-        <div className="container-page grid gap-12 lg:grid-cols-2 lg:items-center">
-          <div className="relative overflow-hidden rounded-3xl shadow-elegant aspect-[4/5]">
-            <img src={heroInterior} alt="North End interior craftsmanship" loading="lazy" className="h-full w-full object-cover" />
-          </div>
-          <div>
-            <SectionHeader
-              kicker="Our Story"
-              title="Fifteen years. One promise."
-              titleBn="পনেরো বছর, একটি প্রতিশ্রুতি"
-              subtitle="What started as a small family construction firm on Central Road is today one of northern Bangladesh's most trusted developers — with 50+ delivered projects and 1,200+ families calling a North End address home."
-            />
-            <ul className="mt-8 space-y-3">
-              {[
-                "Family-owned, professionally managed — three generations of builders",
-                "In-house architects, structural engineers, MEP and interior teams",
-                "Every project independently audited by a third-party quality lab",
-                "24-month post-handover warranty on structure, plumbing and electricals",
-              ].map((h) => (
-                <li key={h} className="flex items-start gap-3 text-foreground/85">
-                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-brand-green" />
-                  <span>{h}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-secondary/40 py-20 md:py-28">
-        <div className="container-page">
-          <SectionHeader
-            align="center"
-            kicker="Our Values"
-            title="What we refuse to compromise on"
-            titleBn="যা কখনো আপস করি না"
-          />
-          <div className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-            {values.map(({ icon: Icon, title, body }) => (
-              <div key={title} className="rounded-2xl border border-border bg-card p-6 transition-all hover:border-brand-gold hover:shadow-card-soft">
-                <div className="grid h-11 w-11 place-items-center rounded-lg bg-brand-gold/12 text-brand-gold">
-                  <Icon className="h-5 w-5" />
-                </div>
-                <h3 className="mt-5 text-base font-semibold text-foreground">{title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <Statistics />
-
       <section className="py-20 md:py-28 bg-gradient-to-b from-background via-secondary/30 to-background">
         <div className="container-page grid gap-12 lg:grid-cols-[minmax(0,420px)_1fr] lg:items-center">
           <div className="relative">
@@ -165,6 +112,59 @@ function AboutPage() {
           </div>
         </div>
       </section>
+
+      <section className="py-20 md:py-28">
+        <div className="container-page grid gap-12 lg:grid-cols-2 lg:items-center">
+          <div className="relative overflow-hidden rounded-3xl shadow-elegant aspect-[4/5]">
+            <img src={heroInterior} alt="North End interior craftsmanship" loading="lazy" className="h-full w-full object-cover" />
+          </div>
+          <div>
+            <SectionHeader
+              kicker="Our Story"
+              title="Fifteen years. One promise."
+              titleBn="পনেরো বছর, একটি প্রতিশ্রুতি"
+              subtitle="What started as a small family construction firm on Central Road is today one of northern Bangladesh's most trusted developers — with 50+ delivered projects and 1,200+ families calling a North End address home."
+            />
+            <ul className="mt-8 space-y-3">
+              {[
+                "Family-owned, professionally managed — three generations of builders",
+                "In-house architects, structural engineers, MEP and interior teams",
+                "Every project independently audited by a third-party quality lab",
+                "24-month post-handover warranty on structure, plumbing and electricals",
+              ].map((h) => (
+                <li key={h} className="flex items-start gap-3 text-foreground/85">
+                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-brand-green" />
+                  <span>{h}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-secondary/40 py-20 md:py-28">
+        <div className="container-page">
+          <SectionHeader
+            align="center"
+            kicker="Our Values"
+            title="What we refuse to compromise on"
+            titleBn="যা কখনো আপস করি না"
+          />
+          <div className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            {values.map(({ icon: Icon, title, body }) => (
+              <div key={title} className="rounded-2xl border border-border bg-card p-6 transition-all hover:border-brand-gold hover:shadow-card-soft">
+                <div className="grid h-11 w-11 place-items-center rounded-lg bg-brand-gold/12 text-brand-gold">
+                  <Icon className="h-5 w-5" />
+                </div>
+                <h3 className="mt-5 text-base font-semibold text-foreground">{title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <Statistics />
 
       <section className="py-20 md:py-28">
         <div className="container-page">
