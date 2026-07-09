@@ -43,7 +43,7 @@ export function FeaturedProjects() {
             subtitle="A curated look at the projects defining premium living and business in Rangpur."
           />
           <a
-            href="/projects"
+            href="/projects/running"
             className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-brand-gold"
           >
             View all projects <ArrowUpRight className="h-4 w-4" />

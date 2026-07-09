@@ -101,7 +101,7 @@ function ServicesPage() {
           <p className="max-w-xl text-muted-foreground">Tell us about your project — residential, commercial or a plot of land — and we'll come back with a costed proposal within 48 hours.</p>
           <div className="flex flex-wrap justify-center gap-3">
             <Link to="/inquiry" className="btn-premium">Start a project</Link>
-            <Link to="/projects" className="btn-outline-premium">See our work</Link>
+            <Link to="/projects/running" className="btn-outline-premium">See our work</Link>
           </div>
         </div>
       </section>

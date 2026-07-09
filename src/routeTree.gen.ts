@@ -12,7 +12,6 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SiteVisitRouteImport } from './routes/site-visit'
 import { Route as ServicesRouteImport } from './routes/services'
-import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as InquiryRouteImport } from './routes/inquiry'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -60,11 +59,6 @@ const SiteVisitRoute = SiteVisitRouteImport.update({
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProjectsRoute = ProjectsRouteImport.update({
-  id: '/projects',
-  path: '/projects',
   getParentRoute: () => rootRouteImport,
 } as any)
 const InquiryRoute = InquiryRouteImport.update({
@@ -123,19 +117,19 @@ const AdminIndexRoute = AdminIndexRouteImport.update({
   getParentRoute: () => AdminRoute,
 } as any)
 const ProjectsRunningRoute = ProjectsRunningRouteImport.update({
-  id: '/running',
-  path: '/running',
-  getParentRoute: () => ProjectsRoute,
+  id: '/projects/running',
+  path: '/projects/running',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const ProjectsCompletedRoute = ProjectsCompletedRouteImport.update({
-  id: '/completed',
-  path: '/completed',
-  getParentRoute: () => ProjectsRoute,
+  id: '/projects/completed',
+  path: '/projects/completed',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const ProjectsSlugRoute = ProjectsSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => ProjectsRoute,
+  id: '/projects/$slug',
+  path: '/projects/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const AdminUsersRoute = AdminUsersRouteImport.update({
   id: '/users',
@@ -245,7 +239,6 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
   '/inquiry': typeof InquiryRoute
-  '/projects': typeof ProjectsRouteWithChildren
   '/services': typeof ServicesRoute
   '/site-visit': typeof SiteVisitRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -283,7 +276,6 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
   '/inquiry': typeof InquiryRoute
-  '/projects': typeof ProjectsRouteWithChildren
   '/services': typeof ServicesRoute
   '/site-visit': typeof SiteVisitRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -323,7 +315,6 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
   '/inquiry': typeof InquiryRoute
-  '/projects': typeof ProjectsRouteWithChildren
   '/services': typeof ServicesRoute
   '/site-visit': typeof SiteVisitRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -364,7 +355,6 @@ export interface FileRouteTypes {
     | '/contact'
     | '/gallery'
     | '/inquiry'
-    | '/projects'
     | '/services'
     | '/site-visit'
     | '/sitemap.xml'
@@ -402,7 +392,6 @@ export interface FileRouteTypes {
     | '/contact'
     | '/gallery'
     | '/inquiry'
-    | '/projects'
     | '/services'
     | '/site-visit'
     | '/sitemap.xml'
@@ -441,7 +430,6 @@ export interface FileRouteTypes {
     | '/contact'
     | '/gallery'
     | '/inquiry'
-    | '/projects'
     | '/services'
     | '/site-visit'
     | '/sitemap.xml'
@@ -481,10 +469,12 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   GalleryRoute: typeof GalleryRoute
   InquiryRoute: typeof InquiryRoute
-  ProjectsRoute: typeof ProjectsRouteWithChildren
   ServicesRoute: typeof ServicesRoute
   SiteVisitRoute: typeof SiteVisitRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  ProjectsSlugRoute: typeof ProjectsSlugRouteWithChildren
+  ProjectsCompletedRoute: typeof ProjectsCompletedRoute
+  ProjectsRunningRoute: typeof ProjectsRunningRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -508,13 +498,6 @@ declare module '@tanstack/react-router' {
       path: '/services'
       fullPath: '/services'
       preLoaderRoute: typeof ServicesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/projects': {
-      id: '/projects'
-      path: '/projects'
-      fullPath: '/projects'
-      preLoaderRoute: typeof ProjectsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/inquiry': {
@@ -596,24 +579,24 @@ declare module '@tanstack/react-router' {
     }
     '/projects/running': {
       id: '/projects/running'
-      path: '/running'
+      path: '/projects/running'
       fullPath: '/projects/running'
       preLoaderRoute: typeof ProjectsRunningRouteImport
-      parentRoute: typeof ProjectsRoute
+      parentRoute: typeof rootRouteImport
     }
     '/projects/completed': {
       id: '/projects/completed'
-      path: '/completed'
+      path: '/projects/completed'
       fullPath: '/projects/completed'
       preLoaderRoute: typeof ProjectsCompletedRouteImport
-      parentRoute: typeof ProjectsRoute
+      parentRoute: typeof rootRouteImport
     }
     '/projects/$slug': {
       id: '/projects/$slug'
-      path: '/$slug'
+      path: '/projects/$slug'
       fullPath: '/projects/$slug'
       preLoaderRoute: typeof ProjectsSlugRouteImport
-      parentRoute: typeof ProjectsRoute
+      parentRoute: typeof rootRouteImport
     }
     '/admin/users': {
       id: '/admin/users'
@@ -809,22 +792,6 @@ const ProjectsSlugRouteWithChildren = ProjectsSlugRoute._addFileChildren(
   ProjectsSlugRouteChildren,
 )
 
-interface ProjectsRouteChildren {
-  ProjectsSlugRoute: typeof ProjectsSlugRouteWithChildren
-  ProjectsCompletedRoute: typeof ProjectsCompletedRoute
-  ProjectsRunningRoute: typeof ProjectsRunningRoute
-}
-
-const ProjectsRouteChildren: ProjectsRouteChildren = {
-  ProjectsSlugRoute: ProjectsSlugRouteWithChildren,
-  ProjectsCompletedRoute: ProjectsCompletedRoute,
-  ProjectsRunningRoute: ProjectsRunningRoute,
-}
-
-const ProjectsRouteWithChildren = ProjectsRoute._addFileChildren(
-  ProjectsRouteChildren,
-)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
@@ -836,10 +803,12 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   GalleryRoute: GalleryRoute,
   InquiryRoute: InquiryRoute,
-  ProjectsRoute: ProjectsRouteWithChildren,
   ServicesRoute: ServicesRoute,
   SiteVisitRoute: SiteVisitRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  ProjectsSlugRoute: ProjectsSlugRouteWithChildren,
+  ProjectsCompletedRoute: ProjectsCompletedRoute,
+  ProjectsRunningRoute: ProjectsRunningRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

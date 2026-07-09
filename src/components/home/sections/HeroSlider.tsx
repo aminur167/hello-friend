@@ -59,7 +59,7 @@ const slides: Slide[] = [
     ctaPrimary: "কমার্শিয়াল দেখুন",
     ctaSecondary: "যোগাযোগ",
     image: slide3.url,
-    href: "/projects",
+    href: "/projects/running",
   },
   {
     chip: "Sky Gardens",
@@ -184,7 +184,7 @@ export function HeroSlider() {
                 {s.ctaPrimary}
                 <ArrowRight className="h-4 w-4" />
               </a>
-              <a href="/projects" className="btn-luxe-ghost">
+              <a href="/projects/running" className="btn-luxe-ghost">
                 {s.ctaSecondary}
               </a>
             </div>
