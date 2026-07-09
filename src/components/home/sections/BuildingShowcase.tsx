@@ -35,22 +35,26 @@ export function BuildingShowcase() {
           titleBn="নর্থ এন্ডের সিগনেচার ভবনসমূহ"
           subtitle="A curated look at our recent developments — where architecture, greenery and craftsmanship meet."
         />
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-4 md:auto-rows-[220px] gap-4">
+        <div className="mt-14 grid grid-cols-1 md:grid-cols-4 md:auto-rows-[220px] gap-4">
           {renders.map((r) => (
             <figure
               key={r.src}
-              className={`group relative overflow-hidden rounded-lg border border-border/50 shadow-soft ${r.span}`}
+              className={`group relative overflow-hidden rounded-2xl border border-border/40 shadow-card-soft transition-all duration-500 hover:shadow-elegant hover:-translate-y-1 ${r.span}`}
             >
               <img
                 src={r.src}
                 alt={r.title}
                 loading="lazy"
-                className="absolute inset-0 h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-105"
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.08]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/85 via-brand-navy/10 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-brand-navy/25 to-transparent opacity-90 transition-opacity group-hover:opacity-100" />
+              <div className="absolute inset-0 ring-0 ring-brand-gold/0 transition-all duration-500 group-hover:ring-1 group-hover:ring-brand-gold/40 rounded-2xl" />
               <figcaption className="absolute inset-x-0 bottom-0 p-5 text-white">
-                <div className="text-xs uppercase tracking-[0.22em] text-brand-gold">{r.location}</div>
-                <div className="mt-1 text-lg font-semibold">{r.title}</div>
+                <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.28em] text-brand-gold">
+                  <span className="h-px w-6 bg-brand-gold/70" />
+                  {r.location}
+                </div>
+                <div className="mt-2 text-lg font-semibold leading-tight md:text-xl">{r.title}</div>
               </figcaption>
             </figure>
           ))}
