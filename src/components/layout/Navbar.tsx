@@ -4,6 +4,7 @@ import { Menu, X, Phone } from "lucide-react";
 import { Container } from "./Container";
 import { siteConfig } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
+import brandLogo from "@/assets/brand-logo.jpg.asset.json";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
@@ -28,12 +29,16 @@ export function Navbar() {
       <Container className="flex h-16 items-center justify-between md:h-20">
         {/* Brand */}
         <Link to="/" className="flex items-center gap-2" aria-label={siteConfig.name}>
-          <div className={cn(
-            "grid h-9 w-9 place-items-center rounded-md font-bold shadow-elegant transition-colors",
-            scrolled ? "bg-primary text-primary-foreground" : "bg-brand-gold text-brand-gold-foreground",
-          )}>
-            N
-          </div>
+          <img
+            src={brandLogo.url}
+            alt={`${siteConfig.name} logo`}
+            className={cn(
+              "h-10 w-10 rounded-md object-contain shadow-elegant transition-colors",
+              scrolled ? "bg-white" : "bg-white/95",
+            )}
+            width={40}
+            height={40}
+          />
           <div className="hidden sm:flex flex-col leading-tight">
             <span className={cn(
               "text-sm font-semibold tracking-wide transition-colors",
