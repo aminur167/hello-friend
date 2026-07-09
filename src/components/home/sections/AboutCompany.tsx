@@ -37,19 +37,9 @@ export function AboutCompany() {
               </li>
             ))}
           </ul>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <a
-              href="/about"
-              className="inline-flex items-center rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-elegant hover:-translate-y-0.5 transition-transform"
-            >
-              Learn more about us
-            </a>
-            <a
-              href="/projects"
-              className="inline-flex items-center rounded-md border border-border bg-background px-6 py-3 text-sm font-semibold text-foreground hover:border-brand-gold"
-            >
-              Our portfolio
-            </a>
+          <div className="mt-10 flex flex-wrap gap-3">
+            <a href="/about" className="btn-premium">Learn more about us</a>
+            <a href="/projects" className="btn-outline-premium">Our portfolio</a>
           </div>
         </div>
       </div>
