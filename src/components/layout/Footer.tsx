@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Facebook, Instagram, Youtube, Linkedin, MapPin, Phone, Mail } from "lucide-react";
 import { Container } from "./Container";
 import { siteConfig } from "@/lib/site-config";
+import brandLogo from "@/assets/brand-logo.jpg.asset.json";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -12,9 +13,13 @@ export function Footer() {
         {/* Brand */}
         <div className="space-y-4">
           <div className="flex items-center gap-2">
-            <div className="grid h-9 w-9 place-items-center rounded-md bg-brand-gold text-brand-gold-foreground font-bold">
-              N
-            </div>
+            <img
+              src={brandLogo.url}
+              alt={`${siteConfig.name} logo`}
+              className="h-10 w-10 rounded-md bg-white object-contain"
+              width={40}
+              height={40}
+            />
             <div className="leading-tight">
               <div className="text-sm font-semibold">{siteConfig.shortName}</div>
               <div className="text-[10px] uppercase tracking-[0.18em] text-brand-gold">
