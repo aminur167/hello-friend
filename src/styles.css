@@ -510,13 +510,19 @@
  * behavior intact on mouse, trackpad, and touch. Also guard against
  * accidental horizontal overflow so mobile/tablet layouts stay clean.
  */
-html, body {
-  overflow-x: hidden;
+/* Keep the page's native scroll on <html> so iOS/Android momentum
+ * (rubber-band + fling) stays intact. Only clip horizontal overflow
+ * on <body> — clipping it on <html> too can break momentum scroll. */
+html {
   scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  overscroll-behavior-y: none;
   scrollbar-width: none;         /* Firefox */
   -ms-overflow-style: none;       /* IE/Edge legacy */
+}
+body {
+  overflow-x: clip;               /* clip = no scroll container, safe on iOS */
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 html::-webkit-scrollbar,
 body::-webkit-scrollbar,
