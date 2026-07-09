@@ -1,19 +1,19 @@
-import { Phone, Star, Sparkles } from "lucide-react";
-import { siteConfig } from "@/lib/site-config";
+import { Star } from "lucide-react";
 
 /**
  * Premium glass announcement bar with infinite right→left marquee.
  * Height: 36px. Semi-transparent royal blue with backdrop blur.
+ * Bengali content, Hind Siliguri font.
  */
 const GOLD = "#D4A017";
 
 const items = [
-  { icon: "star", text: "Long-term installment facilities available" },
-  { icon: "diamond", text: `Call Now: ${siteConfig.contact.phone}` },
-  { icon: "diamond", text: "Premium Real Estate in Rangpur" },
-  { icon: "diamond", text: "Book Your Apartment Today" },
-  { icon: "diamond", text: "Trusted Construction Company" },
-  { icon: "diamond", text: "Luxury Living Starts Here" },
+  { icon: "star", text: "দীর্ঘমেয়াদী কিস্তির সুবিধা" },
+  { icon: "diamond", text: "আজই বুকিং করুন" },
+  { icon: "diamond", text: "রংপুরের প্রিমিয়াম রিয়েল এস্টেট প্রতিষ্ঠান" },
+  { icon: "diamond", text: "স্বপ্নের বাড়ি, নিরাপদ বিনিয়োগ" },
+  { icon: "diamond", text: "সীমিত সময়ের বিশেষ অফার" },
+  { icon: "diamond", text: "যোগাযোগ: +৮৮০ ১৭০০ ০০০ ০০০" },
 ];
 
 const Icon = ({ kind }: { kind: string }) => {
@@ -31,7 +31,11 @@ function Track() {
   return (
     <div className="flex items-center gap-10 pr-10 shrink-0">
       {items.map((it, i) => (
-        <span key={i} className="inline-flex items-center gap-2.5 text-[12px] tracking-wide text-white/95 whitespace-nowrap">
+        <span
+          key={i}
+          className="inline-flex items-center gap-2.5 text-[12.5px] text-white/95 whitespace-nowrap"
+          style={{ fontFamily: "'Hind Siliguri', 'Noto Sans Bengali', sans-serif", fontWeight: 500 }}
+        >
           <Icon kind={it.icon} />
           {it.text}
         </span>
