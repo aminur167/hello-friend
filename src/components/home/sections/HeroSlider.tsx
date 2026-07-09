@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ChevronLeft, ChevronRight, ArrowRight, PlayCircle } from "lucide-react";
+import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import slide1 from "@/assets/projects/14.29.52_1.jpg.asset.json";   // tall brick tower, blue sky
 import slide2 from "@/assets/projects/14.29.51_1.jpg.asset.json";   // luxury tower at night
