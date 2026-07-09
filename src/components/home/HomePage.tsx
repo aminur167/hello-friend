@@ -7,7 +7,6 @@ import { WhyChooseUs } from "./sections/WhyChooseUs";
 import { OngoingProjects } from "./sections/OngoingProjects";
 import { CompletedProjects } from "./sections/CompletedProjects";
 import { ConstructionQuality } from "./sections/ConstructionQuality";
-import { ApartmentFeatures } from "./sections/ApartmentFeatures";
 import { CustomerReviews } from "./sections/CustomerReviews";
 import { Statistics } from "./sections/Statistics";
 import { InvestmentBenefits } from "./sections/InvestmentBenefits";
@@ -28,7 +27,6 @@ export function HomePage() {
       <OngoingProjects />
       <CompletedProjects />
       <ConstructionQuality />
-      <ApartmentFeatures />
       <CustomerReviews />
       <Statistics />
       <InvestmentBenefits />
