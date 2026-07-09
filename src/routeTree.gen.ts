@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SiteVisitRouteImport } from './routes/site-visit'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as LandShareRouteImport } from './routes/land-share'
 import { Route as InquiryRouteImport } from './routes/inquiry'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -59,6 +60,11 @@ const SiteVisitRoute = SiteVisitRouteImport.update({
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LandShareRoute = LandShareRouteImport.update({
+  id: '/land-share',
+  path: '/land-share',
   getParentRoute: () => rootRouteImport,
 } as any)
 const InquiryRoute = InquiryRouteImport.update({
@@ -239,6 +245,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
   '/inquiry': typeof InquiryRoute
+  '/land-share': typeof LandShareRoute
   '/services': typeof ServicesRoute
   '/site-visit': typeof SiteVisitRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -276,6 +283,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
   '/inquiry': typeof InquiryRoute
+  '/land-share': typeof LandShareRoute
   '/services': typeof ServicesRoute
   '/site-visit': typeof SiteVisitRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -315,6 +323,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
   '/inquiry': typeof InquiryRoute
+  '/land-share': typeof LandShareRoute
   '/services': typeof ServicesRoute
   '/site-visit': typeof SiteVisitRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -355,6 +364,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/gallery'
     | '/inquiry'
+    | '/land-share'
     | '/services'
     | '/site-visit'
     | '/sitemap.xml'
@@ -392,6 +402,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/gallery'
     | '/inquiry'
+    | '/land-share'
     | '/services'
     | '/site-visit'
     | '/sitemap.xml'
@@ -430,6 +441,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/gallery'
     | '/inquiry'
+    | '/land-share'
     | '/services'
     | '/site-visit'
     | '/sitemap.xml'
@@ -469,6 +481,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   GalleryRoute: typeof GalleryRoute
   InquiryRoute: typeof InquiryRoute
+  LandShareRoute: typeof LandShareRoute
   ServicesRoute: typeof ServicesRoute
   SiteVisitRoute: typeof SiteVisitRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -498,6 +511,13 @@ declare module '@tanstack/react-router' {
       path: '/services'
       fullPath: '/services'
       preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/land-share': {
+      id: '/land-share'
+      path: '/land-share'
+      fullPath: '/land-share'
+      preLoaderRoute: typeof LandShareRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/inquiry': {
@@ -803,6 +823,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   GalleryRoute: GalleryRoute,
   InquiryRoute: InquiryRoute,
+  LandShareRoute: LandShareRoute,
   ServicesRoute: ServicesRoute,
   SiteVisitRoute: SiteVisitRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
