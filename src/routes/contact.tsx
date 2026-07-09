@@ -23,10 +23,10 @@ function ContactPage() {
   return (
     <SiteLayout>
       <FormPageHero
-        kicker="Get in Touch"
-        title="We're here to help — every step of the way"
-        titleBn="আমরা আপনার পাশে আছি"
-        subtitle="Reach us by phone, WhatsApp, email or drop by our Rangpur office. We reply to every message within one business day."
+        kicker="যোগাযোগ"
+        breadcrumb="যোগাযোগ"
+        title="আমরা আপনার পাশে — প্রতিটি ধাপে, প্রতিটি প্রশ্নে"
+        subtitle="ফোন, হোয়াটসঅ্যাপ, ইমেইল অথবা সরাসরি আমাদের রংপুর অফিসে চলে আসুন। প্রতিটি বার্তার উত্তর আমরা এক কার্যদিবসের মধ্যেই দিয়ে থাকি।"
         image={heroTower}
       />
       <section className="py-16 md:py-24">

@@ -21,10 +21,10 @@ function BookingPage() {
   return (
     <SiteLayout>
       <FormPageHero
-        kicker="Reserve Now"
-        title="Book your apartment with confidence"
-        titleBn="আপনার স্বপ্নের ফ্ল্যাট এখনই বুক করুন"
-        subtitle="Lock in early-buyer pricing and preferred unit selection. Fill in a few details and a sales advisor will confirm within 2 business hours."
+        kicker="বুকিং"
+        breadcrumb="বুকিং"
+        title="আপনার স্বপ্নের ফ্ল্যাট এখনই বুক করুন — নিশ্চিন্তে, নিরাপদে"
+        subtitle="আর্লি-বায়ার প্রাইসিং ও পছন্দের ইউনিট লক করুন। কয়েকটি তথ্য দিন — আমাদের সেলস অ্যাডভাইজর ২ কার্যঘণ্টার মধ্যেই নিশ্চিত করবেন।"
         image={heroFamily}
       />
       <section className="py-16 md:py-24">

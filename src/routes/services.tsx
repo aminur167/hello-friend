@@ -39,11 +39,15 @@ function ServicesPage() {
   return (
     <SiteLayout>
       <FormPageHero
-        kicker="What We Do"
-        title="Six services. One accountable roof."
-        titleBn="ছয়টি সেবা, এক ছাদের নিচে"
-        subtitle="From master planning to key handover and lifelong facility management — North End covers every stage of the real estate journey so you deal with one partner, not seven contractors."
+        kicker="আমাদের সেবা"
+        breadcrumb="আমাদের সেবা"
+        title="ছয়টি সেবা, এক ছাদের নিচে — এক অংশীদার, পূর্ণ দায়িত্ব"
+        subtitle="মাস্টার প্ল্যানিং থেকে চাবি হস্তান্তর ও দীর্ঘমেয়াদি ফ্যাসিলিটি ম্যানেজমেন্ট পর্যন্ত — রিয়েল এস্টেট যাত্রার প্রতিটি ধাপে নর্থ এন্ড আপনার পাশে। সাতজন কন্ট্রাক্টরের বদলে একজন নির্ভরযোগ্য পার্টনার।"
         image={heroCity}
+        ctas={[
+          { label: "প্রকল্প দেখুন", to: "/projects/running", variant: "gold" },
+          { label: "পরামর্শ নিন", to: "/contact", variant: "ghost" },
+        ]}
       />
 
       <section className="py-20 md:py-28">

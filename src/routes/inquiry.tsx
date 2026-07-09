@@ -21,10 +21,10 @@ function InquiryPage() {
   return (
     <SiteLayout>
       <FormPageHero
-        kicker="General Inquiry"
-        title="Tell us what you're looking for"
-        titleBn="আপনার প্রয়োজন আমাদের জানান"
-        subtitle="Whether it's an apartment, land plot, commercial space or investment opportunity — share the details and our advisor will get back with matching options."
+        kicker="জিজ্ঞাসা"
+        breadcrumb="জিজ্ঞাসা"
+        title="আপনার প্রয়োজন আমাদের জানান — সমাধান আমরা এনে দেব"
+        subtitle="অ্যাপার্টমেন্ট, প্লট, কমার্শিয়াল স্পেস অথবা বিনিয়োগের সুযোগ — যেকোনো প্রশ্ন লিখে পাঠান। আমাদের অ্যাডভাইজর আপনার প্রয়োজন অনুযায়ী উপযুক্ত অপশন নিয়ে ফিরে আসবেন।"
         image={heroCity}
       />
       <section className="py-16 md:py-24">

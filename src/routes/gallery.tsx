@@ -65,10 +65,10 @@ function GalleryPage() {
   return (
     <SiteLayout>
       <FormPageHero
-        kicker="Gallery"
-        title="A visual journey through our work"
-        titleBn="আমাদের কাজের ছবির যাত্রা"
-        subtitle="Real photos of finished buildings, model interiors, amenities and live construction — no stock imagery, no touch-ups."
+        kicker="গ্যালারি"
+        breadcrumb="গ্যালারি"
+        title="আমাদের কাজের ছবিতে গড়া এক অনন্য যাত্রা"
+        subtitle="সমাপ্ত ভবন, মডেল ইন্টেরিয়র, অ্যামেনিটি এবং সরাসরি নির্মাণস্থলের বাস্তব ছবি — কোনো স্টক ইমেজ নয়, কোনো এডিট নয়।"
         image={heroLobby}
       />
 
