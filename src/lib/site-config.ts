@@ -39,11 +39,11 @@ export const siteConfig = {
     primary: [
       { label: "Home", to: "/" },
       { label: "About", to: "/about" },
-      { label: "Services", to: "/services" },
-      { label: "Projects", to: "/projects" },
+      { label: "Running Projects", to: "/projects/running" },
+      { label: "Upcoming Projects", to: "/projects" },
+      { label: "Flats", to: "/services" },
+      { label: "Land Share", to: "/services" },
       { label: "Gallery", to: "/gallery" },
-      { label: "Blog", to: "/blog" },
-      { label: "Careers", to: "/careers" },
       { label: "Contact", to: "/contact" },
     ],
     footerServices: [
