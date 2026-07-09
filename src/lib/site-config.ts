@@ -20,6 +20,15 @@ export const siteConfig = {
     email: "info@northendconstruction.com",
     address: "Rangpur, Bangladesh",
   },
+  /**
+   * Where new lead / booking notifications should go.
+   * Replace with real values.
+   *  - adminWhatsApp: international format WITHOUT '+' or spaces (used in wa.me links).
+   */
+  admin: {
+    email: "admin@northendconstruction.com",
+    whatsApp: "8801700000000",
+  },
   social: {
     facebook: "https://facebook.com/",
     instagram: "",
@@ -31,8 +40,8 @@ export const siteConfig = {
       { label: "Home", to: "/" },
       { label: "About", to: "/about" },
       { label: "Projects", to: "/projects" },
-      { label: "Services", to: "/services" },
-      { label: "Blog", to: "/blog" },
+      { label: "Site Visit", to: "/site-visit" },
+      { label: "Booking", to: "/booking" },
       { label: "Contact", to: "/contact" },
     ],
     footerServices: [

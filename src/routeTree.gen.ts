@@ -9,16 +9,52 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SiteVisitRouteImport } from './routes/site-visit'
 import { Route as ProjectsRouteImport } from './routes/projects'
+import { Route as InquiryRouteImport } from './routes/inquiry'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as BookingRouteImport } from './routes/booking'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as AdminRouteImport } from './routes/admin'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProjectsRunningRouteImport } from './routes/projects.running'
 import { Route as ProjectsCompletedRouteImport } from './routes/projects.completed'
 import { Route as ProjectsSlugRouteImport } from './routes/projects.$slug'
 import { Route as ProjectsSlugApartmentsUnitIdRouteImport } from './routes/projects.$slug.apartments.$unitId'
 
+const SiteVisitRoute = SiteVisitRouteImport.update({
+  id: '/site-visit',
+  path: '/site-visit',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProjectsRoute = ProjectsRouteImport.update({
   id: '/projects',
   path: '/projects',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InquiryRoute = InquiryRouteImport.update({
+  id: '/inquiry',
+  path: '/inquiry',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookingRoute = BookingRouteImport.update({
+  id: '/booking',
+  path: '/booking',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -50,7 +86,13 @@ const ProjectsSlugApartmentsUnitIdRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
+  '/auth': typeof AuthRoute
+  '/booking': typeof BookingRoute
+  '/contact': typeof ContactRoute
+  '/inquiry': typeof InquiryRoute
   '/projects': typeof ProjectsRouteWithChildren
+  '/site-visit': typeof SiteVisitRoute
   '/projects/$slug': typeof ProjectsSlugRouteWithChildren
   '/projects/completed': typeof ProjectsCompletedRoute
   '/projects/running': typeof ProjectsRunningRoute
@@ -58,7 +100,13 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
+  '/auth': typeof AuthRoute
+  '/booking': typeof BookingRoute
+  '/contact': typeof ContactRoute
+  '/inquiry': typeof InquiryRoute
   '/projects': typeof ProjectsRouteWithChildren
+  '/site-visit': typeof SiteVisitRoute
   '/projects/$slug': typeof ProjectsSlugRouteWithChildren
   '/projects/completed': typeof ProjectsCompletedRoute
   '/projects/running': typeof ProjectsRunningRoute
@@ -67,7 +115,13 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
+  '/auth': typeof AuthRoute
+  '/booking': typeof BookingRoute
+  '/contact': typeof ContactRoute
+  '/inquiry': typeof InquiryRoute
   '/projects': typeof ProjectsRouteWithChildren
+  '/site-visit': typeof SiteVisitRoute
   '/projects/$slug': typeof ProjectsSlugRouteWithChildren
   '/projects/completed': typeof ProjectsCompletedRoute
   '/projects/running': typeof ProjectsRunningRoute
@@ -77,7 +131,13 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/admin'
+    | '/auth'
+    | '/booking'
+    | '/contact'
+    | '/inquiry'
     | '/projects'
+    | '/site-visit'
     | '/projects/$slug'
     | '/projects/completed'
     | '/projects/running'
@@ -85,7 +145,13 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/admin'
+    | '/auth'
+    | '/booking'
+    | '/contact'
+    | '/inquiry'
     | '/projects'
+    | '/site-visit'
     | '/projects/$slug'
     | '/projects/completed'
     | '/projects/running'
@@ -93,7 +159,13 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/admin'
+    | '/auth'
+    | '/booking'
+    | '/contact'
+    | '/inquiry'
     | '/projects'
+    | '/site-visit'
     | '/projects/$slug'
     | '/projects/completed'
     | '/projects/running'
@@ -102,16 +174,64 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRoute: typeof AdminRoute
+  AuthRoute: typeof AuthRoute
+  BookingRoute: typeof BookingRoute
+  ContactRoute: typeof ContactRoute
+  InquiryRoute: typeof InquiryRoute
   ProjectsRoute: typeof ProjectsRouteWithChildren
+  SiteVisitRoute: typeof SiteVisitRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/site-visit': {
+      id: '/site-visit'
+      path: '/site-visit'
+      fullPath: '/site-visit'
+      preLoaderRoute: typeof SiteVisitRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/projects': {
       id: '/projects'
       path: '/projects'
       fullPath: '/projects'
       preLoaderRoute: typeof ProjectsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/inquiry': {
+      id: '/inquiry'
+      path: '/inquiry'
+      fullPath: '/inquiry'
+      preLoaderRoute: typeof InquiryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/booking': {
+      id: '/booking'
+      path: '/booking'
+      fullPath: '/booking'
+      preLoaderRoute: typeof BookingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -182,7 +302,13 @@ const ProjectsRouteWithChildren = ProjectsRoute._addFileChildren(
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRoute: AdminRoute,
+  AuthRoute: AuthRoute,
+  BookingRoute: BookingRoute,
+  ContactRoute: ContactRoute,
+  InquiryRoute: InquiryRoute,
   ProjectsRoute: ProjectsRouteWithChildren,
+  SiteVisitRoute: SiteVisitRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

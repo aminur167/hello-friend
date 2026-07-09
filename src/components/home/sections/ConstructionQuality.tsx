@@ -1,4 +1,5 @@
-import { SectionHeader, ProjectVisual } from "./SectionHeader";
+import { SectionHeader } from "./SectionHeader";
+import heroConstruction from "@/assets/hero-construction.jpg";
 
 const stages = [
   { step: "01", title: "Soil & Structural Design", body: "Independent soil test, third-party structural review, seismic zone compliance." },
@@ -34,7 +35,9 @@ export function ConstructionQuality() {
           </div>
         </div>
         <div className="relative">
-          <ProjectVisual hue={220} className="aspect-square" />
+          <div className="relative overflow-hidden rounded-3xl aspect-square">
+            <img src={heroConstruction} alt="North End construction site with engineering team" loading="lazy" className="h-full w-full object-cover" />
+          </div>
           <div className="absolute -bottom-4 -left-4 rounded-2xl border border-white/10 bg-brand-gold p-5 text-brand-gold-foreground shadow-gold">
             <div className="text-2xl font-semibold">Zero-Compromise</div>
             <div className="text-sm">Quality-first construction policy</div>

@@ -1,5 +1,6 @@
 import { Play } from "lucide-react";
-import { ProjectVisual, SectionHeader } from "./SectionHeader";
+import { SectionHeader } from "./SectionHeader";
+import heroTower from "@/assets/hero-tower.jpg";
 
 export function CompanyVideo() {
   return (
@@ -12,7 +13,10 @@ export function CompanyVideo() {
           titleBn="আমাদের গল্প দেখুন"
         />
         <div className="relative mt-12 overflow-hidden rounded-3xl">
-          <ProjectVisual hue={265} className="aspect-video" />
+          <div className="aspect-video">
+            <img src={heroTower} alt="North End Construction premium residential tower" loading="lazy" className="h-full w-full object-cover" />
+            <div className="absolute inset-0 bg-brand-navy/45" />
+          </div>
           <div className="absolute inset-0 grid place-items-center">
             <button
               type="button"

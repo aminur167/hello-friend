@@ -1,5 +1,6 @@
 import { CheckCircle2 } from "lucide-react";
-import { SectionHeader, ProjectVisual } from "./SectionHeader";
+import { SectionHeader } from "./SectionHeader";
+import heroInterior from "@/assets/hero-interior.jpg";
 
 const highlights = [
   "Delivered 50+ residential & commercial projects across Rangpur",
@@ -13,7 +14,9 @@ export function AboutCompany() {
     <section className="bg-secondary/40 py-20 md:py-28">
       <div className="container-page grid gap-12 lg:grid-cols-2 lg:items-center">
         <div className="relative">
-          <ProjectVisual hue={265} className="aspect-[4/5] md:aspect-[4/5]" />
+          <div className="relative overflow-hidden rounded-3xl shadow-elegant aspect-[4/5]">
+            <img src={heroInterior} alt="Luxury North End apartment interior" loading="lazy" className="h-full w-full object-cover" />
+          </div>
           <div className="absolute -bottom-6 -right-4 hidden rounded-2xl border border-border bg-card p-6 shadow-elegant md:block">
             <div className="text-4xl font-semibold text-primary">15+</div>
             <div className="mt-1 text-sm text-muted-foreground">Years of craftsmanship</div>

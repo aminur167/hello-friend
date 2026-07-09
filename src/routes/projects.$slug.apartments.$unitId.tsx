@@ -186,7 +186,7 @@ function ApartmentDetail() {
               {unit.available > 0 ? `${unit.available} units available` : "Sold out — join waitlist"}
             </div>
           </div>
-          <BookVisitForm projectName={project.name} />
+          <BookVisitForm projectName={project.name} projectSlug={project.slug} />
           <EMICalculator price={unit.priceBDT} />
         </aside>
       </section>
