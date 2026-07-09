@@ -4,7 +4,7 @@ import { Menu, X, Phone } from "lucide-react";
 import { Container } from "./Container";
 import { siteConfig } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
-import brandLogo from "@/assets/brand-logo.jpg.asset.json";
+import brandLogo from "@/assets/brand-logo.png.asset.json";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
