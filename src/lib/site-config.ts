@@ -40,8 +40,8 @@ export const siteConfig = {
       { label: "Home", to: "/" },
       { label: "About", to: "/about" },
       { label: "Projects", to: "/projects" },
-      { label: "Services", to: "/services" },
-      { label: "Blog", to: "/blog" },
+      { label: "Site Visit", to: "/site-visit" },
+      { label: "Booking", to: "/booking" },
       { label: "Contact", to: "/contact" },
     ],
     footerServices: [
