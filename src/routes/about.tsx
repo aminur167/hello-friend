@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { CheckCircle2, Award, Users, Building2, Target, HeartHandshake, Sparkles } from "lucide-react";
+import { CheckCircle2, Award, Users, Building2, Target, HeartHandshake, Sparkles, Quote } from "lucide-react";
 import { SiteLayout } from "@/components/layout/SiteLayout";
 import { FormPageHero } from "@/components/forms/FormPageHero";
 import { SectionHeader } from "@/components/home/sections/SectionHeader";
@@ -7,6 +7,7 @@ import { Statistics } from "@/components/home/sections/Statistics";
 import heroInterior from "@/assets/hero-interior.jpg";
 import heroTower from "@/assets/hero-tower.jpg";
 import heroConstruction from "@/assets/hero-construction.jpg";
+import chairmanPortrait from "@/assets/chairman-portrait.jpg";
 
 export const Route = createFileRoute("/about")({
   component: AboutPage,
@@ -101,6 +102,69 @@ function AboutPage() {
       </section>
 
       <Statistics />
+
+      <section className="py-20 md:py-28 bg-gradient-to-b from-background via-secondary/30 to-background">
+        <div className="container-page grid gap-12 lg:grid-cols-[minmax(0,420px)_1fr] lg:items-center">
+          <div className="relative">
+            <div className="relative overflow-hidden rounded-[2rem] shadow-elegant aspect-[4/5] ring-1 ring-brand-gold/20">
+              <img
+                src={chairmanPortrait}
+                alt="মো. সোহেল রানা সোহাগ — প্রতিষ্ঠাতা ও চেয়ারম্যান, নর্থ এন্ড কনস্ট্রাকশন লিমিটেড"
+                loading="lazy"
+                className="h-full w-full object-cover"
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-brand-navy/25 via-transparent to-transparent" />
+            </div>
+            <div className="relative -mt-10 mx-6 rounded-2xl bg-card shadow-card-soft border border-border p-5 text-center">
+              <div className="font-display text-lg font-semibold text-brand-navy">
+                মো. সোহেল রানা সোহাগ
+              </div>
+              <div className="mt-1 text-xs uppercase tracking-[0.22em] text-brand-gold">
+                Founder &amp; Chairman
+              </div>
+              <div className="mt-1 text-xs text-muted-foreground">
+                প্রতিষ্ঠাতা ও চেয়ারম্যান
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <span className="luxe-pill inline-flex items-center gap-2 text-xs uppercase tracking-[0.24em] text-brand-gold">
+              <span className="h-1.5 w-1.5 rounded-full bg-brand-gold" />
+              চেয়ারম্যানের বার্তা
+            </span>
+            <h2 className="mt-5 font-display text-3xl md:text-5xl font-extrabold leading-[1.15] text-brand-navy">
+              আপনার বিশ্বাসই আমাদের ভিত্তি
+            </h2>
+            <Quote className="mt-6 h-8 w-8 text-brand-gold" aria-hidden />
+
+            <div className="mt-4 space-y-5 text-[15px] leading-[1.9] text-foreground/85">
+              <p>
+                প্রিয় সম্মানিত গ্রাহক ও শুভানুধ্যায়ী,
+              </p>
+              <p>
+                <span className="font-semibold text-brand-navy">নর্থ এন্ড কনস্ট্রাকশন লিমিটেড</span>-এর যাত্রা শুরু হয়েছিল একটি সরল অঙ্গীকার নিয়ে — <span className="font-semibold text-brand-navy">সততা, স্বচ্ছতা এবং প্রকৌশল উৎকর্ষ</span>। গত ১৫ বছরে আমরা রংপুর, সৈয়দপুর ও উত্তরাঞ্চলজুড়ে <span className="font-semibold">৫০+ প্রকল্প</span> সম্পন্ন করেছি এবং <span className="font-semibold">১,২০০+</span> পরিবারের কাছে তাদের স্বপ্নের ঘর পৌঁছে দিয়েছি।
+              </p>
+              <p>
+                আমাদের লক্ষ্য কেবল ভবন নির্মাণ নয় — বরং প্রতিটি পরিবারের জন্য একটি নিরাপদ, আধুনিক এবং দীর্ঘস্থায়ী আবাসন তৈরি করা। আপনার প্রতিটি বিনিয়োগ আমাদের কাছে পবিত্র অঙ্গীকার। DLHL পরিবারের প্রতিটি ইট, প্রতিটি সিমেন্টের দানা সেই বিশ্বাসেরই প্রতিচ্ছবি।
+              </p>
+              <p>
+                আমরা কৃতজ্ঞ — কারণ আপনারা আমাদের কেবল গ্রাহক নন, আমাদের পরিবারের অংশ। আগামী দিনে উত্তরাঞ্চলের আকাশরেখা আরও উঁচুতে নিয়ে যাওয়ার এই যাত্রায় আপনাদের পাশে পাওয়া আমাদের সবচেয়ে বড় প্রেরণা।
+              </p>
+            </div>
+
+            <div className="mt-8 flex items-center gap-4">
+              <div className="h-px w-12 bg-brand-gold" />
+              <div>
+                <div className="font-display text-xl italic text-brand-navy">— Md. Shohel Rana Shohag</div>
+                <div className="mt-0.5 text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                  Founder &amp; Chairman, North End Construction Ltd.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section className="py-20 md:py-28">
         <div className="container-page">
