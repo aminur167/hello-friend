@@ -259,8 +259,6 @@
   color: var(--color-foreground);
   outline: none;
   transition: border-color 150ms ease;
-}
-@utility filter-input {
   &:focus { border-color: var(--brand-gold); }
 }
 
