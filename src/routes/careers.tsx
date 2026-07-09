@@ -43,10 +43,10 @@ function CareersPage() {
   return (
     <SiteLayout>
       <FormPageHero
-        kicker="Careers"
-        title="Build Rangpur's skyline with us"
-        titleBn="আমাদের সাথে গড়ুন রংপুরের ভবিষ্যৎ"
-        subtitle="We're hiring engineers, architects, designers and business professionals who want to leave a mark on the city they call home."
+        kicker="ক্যারিয়ার"
+        breadcrumb="ক্যারিয়ার"
+        title="আমাদের সাথে গড়ুন রংপুরের আকাশরেখা ও ভবিষ্যৎ"
+        subtitle="আমরা খুঁজছি প্রকৌশলী, আর্কিটেক্ট, ডিজাইনার ও পেশাদারদের — যারা নিজেদের শহরে অর্থবহ কিছু গড়ে তুলতে চান, স্বপ্নকে বাস্তবে রূপ দিতে চান।"
         image={heroConstruction}
       />
 
