@@ -25,7 +25,7 @@ export function BuildingShowcase() {
           kicker="Architectural Portfolio"
           title="Signature Buildings by North End"
           titleBn="নর্থ এন্ডের সিগনেচার ভবনসমূহ"
-          description="A curated look at our recent developments — where architecture, greenery and craftsmanship meet."
+          subtitle="A curated look at our recent developments — where architecture, greenery and craftsmanship meet."
         />
         <div className="mt-12 grid grid-cols-1 md:grid-cols-4 md:auto-rows-[220px] gap-4">
           {renders.map((r) => (
