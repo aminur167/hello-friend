@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
+import { AnnouncementBar } from "./AnnouncementBar";
 
 /**
  * SiteLayout — shared shell for all public marketing pages.
@@ -15,6 +16,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
       >
         Skip to content
       </a>
+      <AnnouncementBar />
       <Navbar />
       <main id="main" className="flex-1">
         {children}
