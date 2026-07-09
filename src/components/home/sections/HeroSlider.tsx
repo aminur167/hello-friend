@@ -117,10 +117,11 @@ export function HeroSlider() {
             alt=""
             aria-hidden
             loading={i === 0 ? "eager" : "lazy"}
-            className="absolute inset-0 h-full w-full object-cover"
+            className="absolute inset-0 h-full w-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-brand-navy/85 via-brand-navy/55 to-brand-navy/25" />
-          <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/85 via-transparent to-brand-navy/30" />
+          <div className="absolute inset-0 bg-gradient-to-r from-brand-navy/90 via-brand-navy/60 to-brand-navy/10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/80 via-brand-navy/10 to-brand-navy/40" />
+          <div className="pointer-events-none absolute inset-0" style={{ background: "radial-gradient(60% 80% at 20% 50%, oklch(0.15 0.05 265 / 0.55), transparent 70%)" }} />
         </div>
       ))}
 
