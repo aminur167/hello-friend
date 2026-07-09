@@ -266,7 +266,7 @@ function ProjectDetail() {
               up to {formatBDT(p.maxPriceBDT)} · {p.totalUnits} units total
             </div>
           </div>
-          <BookVisitForm projectName={p.name} />
+          <BookVisitForm projectName={p.name} projectSlug={p.slug} />
           <EMICalculator price={p.minPriceBDT} />
         </aside>
       </section>
