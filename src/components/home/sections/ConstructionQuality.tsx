@@ -1,5 +1,5 @@
 import { SectionHeader } from "./SectionHeader";
-import heroConstruction from "@/assets/hero-construction.jpg";
+import { premiumImages } from "@/lib/premium-images";
 
 const stages = [
   { step: "01", title: "Soil & Structural Design", body: "Independent soil test, third-party structural review, seismic zone compliance." },
@@ -36,7 +36,7 @@ export function ConstructionQuality() {
         </div>
         <div className="relative">
           <div className="relative overflow-hidden rounded-3xl aspect-square">
-            <img src={heroConstruction} alt="North End construction site with engineering team" loading="lazy" className="h-full w-full object-cover" />
+            <img src={premiumImages.construction} alt="Chartered engineer reviewing construction plans on site" loading="lazy" className="h-full w-full object-cover" />
           </div>
           <div className="absolute -bottom-4 -left-4 rounded-2xl border border-white/10 bg-brand-gold p-5 text-brand-gold-foreground shadow-gold">
             <div className="text-2xl font-semibold">Zero-Compromise</div>

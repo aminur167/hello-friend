@@ -1,5 +1,6 @@
 import { Quote, Star } from "lucide-react";
 import { SectionHeader } from "./SectionHeader";
+import { premiumImages } from "@/lib/premium-images";
 
 const reviews = [
   {
@@ -7,18 +8,21 @@ const reviews = [
     role: "Homeowner, North End Prime",
     body: "From day one, every commitment was honoured. The finishing quality is remarkable and the handover was ahead of schedule.",
     bn: "প্রতিটি প্রতিশ্রুতি সময়মতো রক্ষা করেছে।",
+    avatar: premiumImages.reviewers[1],
   },
   {
     name: "Farhana Ahmed",
     role: "Investor, Gold Leaf Tower",
     body: "A rare mix of premium quality and honest pricing. My tenants have been staying continuously for years — best decision I made.",
     bn: "প্রিমিয়াম মান আর সৎ মূল্য — চমৎকার।",
+    avatar: premiumImages.reviewers[0],
   },
   {
     name: "Dr. Shahidul Islam",
     role: "Homeowner, Emerald Court",
     body: "Their engineering team walked us through every stage. My family finally has the home we always dreamed about.",
     bn: "পরিবারের স্বপ্নের বাড়ি খুঁজে পেয়েছি।",
+    avatar: premiumImages.reviewers[2],
   },
 ];
 
@@ -51,9 +55,12 @@ export function CustomerReviews() {
                 {r.bn}
               </p>
               <figcaption className="mt-6 flex items-center gap-3 border-t border-border pt-5">
-                <div className="grid h-11 w-11 place-items-center rounded-full bg-gradient-to-br from-primary to-brand-gold text-sm font-semibold text-white">
-                  {r.name.split(" ").map((n) => n[0]).slice(0, 2).join("")}
-                </div>
+                <img
+                  src={r.avatar}
+                  alt={r.name}
+                  loading="lazy"
+                  className="h-11 w-11 rounded-full object-cover ring-2 ring-brand-gold/40"
+                />
                 <div>
                   <div className="text-sm font-semibold text-foreground">{r.name}</div>
                   <div className="text-xs text-muted-foreground">{r.role}</div>
