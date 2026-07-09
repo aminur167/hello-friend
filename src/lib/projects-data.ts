@@ -2,6 +2,18 @@
  * Central catalog of North End Construction projects.
  * Swap `hue` for real image asset URLs when photography is delivered.
  */
+import img49 from "@/assets/projects/14-29-49.jpg.asset.json";
+import img50 from "@/assets/projects/14-29-50.jpg.asset.json";
+import img53 from "@/assets/projects/14-29-53.jpg.asset.json";
+import img54 from "@/assets/projects/14-29-54.jpg.asset.json";
+import img54b from "@/assets/projects/14-29-54_1.jpg.asset.json";
+import img55 from "@/assets/projects/14-29-55.jpg.asset.json";
+import img55b from "@/assets/projects/14-29-55_1.jpg.asset.json";
+import img51 from "@/assets/projects/14.29.51.jpg.asset.json";
+import img51b from "@/assets/projects/14.29.51_1.jpg.asset.json";
+import img52 from "@/assets/projects/14.29.52.jpg.asset.json";
+import img52b from "@/assets/projects/14.29.52_1.jpg.asset.json";
+
 export type ProjectStatus = "ongoing" | "completed" | "upcoming";
 
 export type Amenity =
@@ -46,6 +58,8 @@ export type Project = {
   city: "Rangpur";
   coords: { lat: number; lng: number };
   heroHue: number;
+  image?: string;
+  gallery?: string[];
   galleryHues: number[];
   bedroomsAvailable: number[];
   minPriceBDT: number;
