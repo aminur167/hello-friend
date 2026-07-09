@@ -16,9 +16,9 @@ export function Footer() {
             <img
               src={brandLogo.url}
               alt={`${siteConfig.name} logo`}
-              className="h-10 w-10 rounded-md bg-white object-contain"
-              width={40}
-              height={40}
+              className="h-11 w-11 object-contain"
+              width={44}
+              height={44}
             />
             <div className="leading-tight">
               <div className="text-sm font-semibold">{siteConfig.shortName}</div>
