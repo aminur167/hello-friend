@@ -22,17 +22,23 @@ export function Navbar() {
         "sticky top-0 z-50 w-full transition-all duration-300",
         scrolled
           ? "border-b border-border bg-background/85 backdrop-blur-md shadow-card-soft"
-          : "bg-transparent",
+          : "bg-transparent text-white",
       )}
     >
       <Container className="flex h-16 items-center justify-between md:h-20">
         {/* Brand */}
         <Link to="/" className="flex items-center gap-2" aria-label={siteConfig.name}>
-          <div className="grid h-9 w-9 place-items-center rounded-md bg-primary text-primary-foreground font-bold shadow-elegant">
+          <div className={cn(
+            "grid h-9 w-9 place-items-center rounded-md font-bold shadow-elegant transition-colors",
+            scrolled ? "bg-primary text-primary-foreground" : "bg-brand-gold text-brand-gold-foreground",
+          )}>
             N
           </div>
           <div className="hidden sm:flex flex-col leading-tight">
-            <span className="text-sm font-semibold tracking-wide text-foreground">
+            <span className={cn(
+              "text-sm font-semibold tracking-wide transition-colors",
+              scrolled ? "text-foreground" : "text-white",
+            )}>
               {siteConfig.shortName}
             </span>
             <span className="text-[10px] uppercase tracking-[0.18em] text-brand-gold">
@@ -47,8 +53,11 @@ export function Navbar() {
             <Link
               key={item.to}
               to={item.to}
-              className="text-sm font-medium text-foreground/80 transition-colors hover:text-primary"
-              activeProps={{ className: "text-primary" }}
+              className={cn(
+                "text-sm font-medium transition-colors",
+                scrolled ? "text-foreground/80 hover:text-primary" : "text-white/85 hover:text-brand-gold",
+              )}
+              activeProps={{ className: scrolled ? "text-primary" : "text-brand-gold" }}
             >
               {item.label}
             </Link>
@@ -59,7 +68,12 @@ export function Navbar() {
         <div className="hidden md:flex items-center gap-3">
           <a
             href={`tel:${siteConfig.contact.phone}`}
-            className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-elegant transition-transform hover:-translate-y-0.5"
+            className={cn(
+              "inline-flex items-center gap-2 rounded-md px-4 py-2 text-sm font-semibold shadow-elegant transition-all hover:-translate-y-0.5",
+              scrolled
+                ? "bg-primary text-primary-foreground"
+                : "bg-brand-gold text-brand-gold-foreground",
+            )}
           >
             <Phone className="h-4 w-4" />
             Call Us
@@ -72,7 +86,10 @@ export function Navbar() {
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
-          className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-md border border-border text-foreground"
+          className={cn(
+            "md:hidden inline-flex h-10 w-10 items-center justify-center rounded-md border transition-colors",
+            scrolled ? "border-border text-foreground" : "border-white/40 text-white",
+          )}
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
