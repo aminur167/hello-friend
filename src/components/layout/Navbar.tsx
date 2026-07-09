@@ -32,12 +32,9 @@ export function Navbar() {
           <img
             src={brandLogo.url}
             alt={`${siteConfig.name} logo`}
-            className={cn(
-              "h-10 w-10 rounded-md object-contain shadow-elegant transition-colors",
-              scrolled ? "bg-white" : "bg-white/95",
-            )}
-            width={40}
-            height={40}
+            className="h-11 w-11 object-contain"
+            width={44}
+            height={44}
           />
           <div className="hidden sm:flex flex-col leading-tight">
             <span className={cn(
