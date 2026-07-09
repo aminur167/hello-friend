@@ -5,6 +5,10 @@ import img4 from "@/assets/projects/14-29-54.jpg.asset.json";
 import img5 from "@/assets/projects/14-29-54_1.jpg.asset.json";
 import img6 from "@/assets/projects/14-29-55.jpg.asset.json";
 import img7 from "@/assets/projects/14-29-55_1.jpg.asset.json";
+import img8 from "@/assets/projects/14.29.51.jpg.asset.json";
+import img9 from "@/assets/projects/14.29.51_1.jpg.asset.json";
+import img10 from "@/assets/projects/14.29.52.jpg.asset.json";
+import img11 from "@/assets/projects/14.29.52_1.jpg.asset.json";
 import { SectionHeader } from "./SectionHeader";
 
 const renders = [
@@ -15,6 +19,10 @@ const renders = [
   { src: img5.url, title: "The Ember Collection", location: "Betpotti", span: "" },
   { src: img6.url, title: "Greenline Residence", location: "North Rangpur", span: "md:col-span-2" },
   { src: img7.url, title: "Rooftop Gardens Aerial", location: "Central Road", span: "md:col-span-2" },
+  { src: img8.url, title: "North End Onyx", location: "Grand Hotel Road", span: "md:col-span-2" },
+  { src: img9.url, title: "Onyx Facade Detail", location: "Grand Hotel Road", span: "md:col-span-2" },
+  { src: img11.url, title: "Brickstone Residence", location: "Kachari Bazar", span: "" },
+  { src: img10.url, title: "Sky Garden Terrace", location: "Kachari Bazar", span: "" },
 ];
 
 export function BuildingShowcase() {
