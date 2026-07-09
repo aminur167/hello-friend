@@ -191,30 +191,38 @@ export function HeroSlider() {
           </div>
         ))}
 
-        {/* Bottom controls */}
-        <div className="absolute inset-x-0 bottom-10 flex flex-col items-center gap-6 px-6">
-          <div className="flex items-center gap-4">
-            <button onClick={() => go(-1)} aria-label="Previous slide" className="arrow-nav">
-              <ChevronLeft className="h-5 w-5" />
-            </button>
-            <div className="flex items-center gap-2">
-              {slides.map((_, i) => (
-                <button
-                  key={i}
-                  aria-label={`Slide ${i + 1}`}
-                  onClick={() => setActive(i)}
-                  className={cn(
-                    "h-[3px] rounded-full transition-all",
-                    i === active ? "w-10 bg-brand-gold" : "w-5 bg-white/35 hover:bg-white/60",
-                  )}
-                />
-              ))}
-            </div>
-            <button onClick={() => go(1)} aria-label="Next slide" className="arrow-nav">
-              <ChevronRight className="h-5 w-5" />
-            </button>
+        {/* Side arrows — vertically centered, away from CTAs */}
+        <button
+          onClick={() => go(-1)}
+          aria-label="Previous slide"
+          className="arrow-nav absolute left-4 top-1/2 -translate-y-1/2 z-20 md:left-8"
+        >
+          <ChevronLeft className="h-5 w-5" />
+        </button>
+        <button
+          onClick={() => go(1)}
+          aria-label="Next slide"
+          className="arrow-nav absolute right-4 top-1/2 -translate-y-1/2 z-20 md:right-8"
+        >
+          <ChevronRight className="h-5 w-5" />
+        </button>
+
+        {/* Bottom center — dots + counter only */}
+        <div className="absolute inset-x-0 bottom-8 z-20 flex flex-col items-center gap-3 px-6">
+          <div className="flex items-center gap-2">
+            {slides.map((_, i) => (
+              <button
+                key={i}
+                aria-label={`Slide ${i + 1}`}
+                onClick={() => setActive(i)}
+                className={cn(
+                  "h-[3px] rounded-full transition-all",
+                  i === active ? "w-10 bg-brand-gold" : "w-5 bg-white/35 hover:bg-white/60",
+                )}
+              />
+            ))}
           </div>
-          <div className="hidden text-[10px] font-semibold uppercase tracking-[0.4em] text-white/55 md:block">
+          <div className="text-[10px] font-semibold uppercase tracking-[0.4em] text-white/55">
             {String(active + 1).padStart(2, "0")} / {String(slides.length).padStart(2, "0")}
           </div>
         </div>
