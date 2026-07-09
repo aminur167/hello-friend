@@ -3,6 +3,7 @@ import { SiteLayout } from "@/components/layout/SiteLayout";
 import { ProjectFilters } from "@/components/projects/ProjectFilters";
 import { projects } from "@/lib/projects-data";
 import { ProjectsHeader } from "./projects";
+import runningHero from "@/assets/projects/14-29-53.jpg.asset.json";
 
 export const Route = createFileRoute("/projects/running")({
   component: RunningPage,
@@ -23,6 +24,7 @@ function RunningPage() {
         kicker="Running Projects"
         title="Being built with care right now"
         subtitle="Every ongoing project — with live construction progress, handover timelines and unit availability."
+        image={runningHero.url}
       />
       <section className="container-page pb-24">
         <ProjectFilters projects={projects} lockedStatus="ongoing" />
