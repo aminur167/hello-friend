@@ -26,18 +26,22 @@ export function SectionHeader({
       )}
     >
       {kicker && (
-        <span
+        <div
           className={cn(
-            "inline-block text-xs font-semibold uppercase tracking-[0.24em]",
-            invert ? "text-brand-gold" : "text-brand-gold",
+            "flex items-center gap-3",
+            align === "center" && "justify-center",
           )}
         >
-          {kicker}
-        </span>
+          <span className="gold-divider" aria-hidden />
+          <span className="text-[11px] font-semibold uppercase tracking-[0.28em] text-brand-gold">
+            {kicker}
+          </span>
+          <span className="gold-divider" aria-hidden />
+        </div>
       )}
       <h2
         className={cn(
-          "mt-3 text-3xl font-semibold leading-tight md:text-4xl lg:text-5xl",
+          "mt-4 text-balance text-3xl font-semibold leading-[1.1] tracking-tight md:text-4xl lg:text-[2.75rem]",
           invert ? "text-white" : "text-foreground",
         )}
       >
@@ -46,7 +50,7 @@ export function SectionHeader({
       {titleBn && (
         <p
           className={cn(
-            "mt-2 font-bangla text-lg md:text-xl",
+            "mt-3 font-bangla text-lg md:text-xl",
             invert ? "text-white/70" : "text-muted-foreground",
           )}
         >
@@ -56,7 +60,7 @@ export function SectionHeader({
       {subtitle && (
         <p
           className={cn(
-            "mt-4 text-base md:text-lg",
+            "mt-5 text-balance text-base leading-relaxed md:text-lg",
             invert ? "text-white/70" : "text-muted-foreground",
           )}
         >
