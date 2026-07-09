@@ -47,7 +47,7 @@ export function FormPageHero({
         {/* Breadcrumb */}
         <nav
           aria-label="Breadcrumb"
-          className="flex items-center gap-2 font-bangla text-sm text-white/70"
+          className="flex items-center justify-center gap-2 font-bangla text-sm text-white/70"
         >
           <Link to="/" className="hover:text-brand-gold transition-colors">
             হোম
@@ -56,7 +56,7 @@ export function FormPageHero({
           <span className="text-white/90">{breadcrumb ?? kicker}</span>
         </nav>
 
-        <div className="mt-6 max-w-3xl">
+        <div className="mt-6 mx-auto max-w-3xl text-center">
           {/* Gold pill kicker */}
           <span className="inline-flex items-center gap-2 rounded-full border border-brand-gold/50 bg-brand-gold/10 px-4 py-1.5 font-bangla text-xs font-semibold tracking-wide text-brand-gold backdrop-blur-sm">
             <span className="h-1.5 w-1.5 rounded-full bg-brand-gold" />
@@ -74,12 +74,12 @@ export function FormPageHero({
             </p>
           ) : null}
 
-          <p className="mt-5 max-w-2xl font-bangla text-[15px] leading-[1.9] text-white/75 md:text-lg">
+          <p className="mt-5 mx-auto max-w-2xl font-bangla text-[15px] leading-[1.9] text-white/75 md:text-lg">
             {subtitle}
           </p>
 
           {ctas && ctas.length > 0 ? (
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-8 flex flex-wrap justify-center gap-3">
               {ctas.map((cta) =>
                 cta.variant === "ghost" ? (
                   <Link
