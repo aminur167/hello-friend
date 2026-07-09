@@ -1,5 +1,5 @@
 import { SectionHeader } from "./SectionHeader";
-import { premiumImages } from "@/lib/premium-images";
+import constructionImg from "@/assets/construction-quality.jpg";
 
 const stages = [
   { step: "01", title: "Soil & Structural Design", body: "Independent soil test, third-party structural review, seismic zone compliance." },
@@ -35,12 +35,48 @@ export function ConstructionQuality() {
           </div>
         </div>
         <div className="relative">
-          <div className="relative overflow-hidden rounded-3xl aspect-[4/5]">
-            <img src={premiumImages.construction} alt="Chartered engineer reviewing construction plans on site" loading="lazy" className="h-full w-full object-cover" />
+          {/* Decorative gold frame */}
+          <div className="absolute -inset-3 rounded-[2rem] border border-brand-gold/30 hidden md:block" aria-hidden />
+          <div className="absolute -top-6 -right-6 h-24 w-24 rounded-full bg-brand-gold/20 blur-2xl" aria-hidden />
+
+          <div className="relative overflow-hidden rounded-3xl aspect-[4/5] shadow-2xl ring-1 ring-white/10">
+            <img
+              src={constructionImg}
+              alt="Chartered engineer reviewing construction plans on a luxury high-rise site at golden hour"
+              loading="lazy"
+              width={1024}
+              height={1280}
+              className="h-full w-full object-cover transition-transform duration-[1200ms] hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/70 via-transparent to-transparent" />
+
+            {/* Top-left stat chip */}
+            <div className="absolute top-5 left-5 flex items-center gap-2 rounded-full border border-white/20 bg-black/40 px-3 py-1.5 text-xs font-medium text-white backdrop-blur-md">
+              <span className="h-1.5 w-1.5 rounded-full bg-brand-gold animate-pulse" />
+              ISO 9001 Certified
+            </div>
+
+            {/* Bottom overlay stats */}
+            <div className="absolute inset-x-5 bottom-5 grid grid-cols-3 gap-3 rounded-2xl border border-white/15 bg-white/10 p-4 backdrop-blur-xl">
+              <div>
+                <div className="text-xl font-semibold text-brand-gold">25+</div>
+                <div className="text-[10px] uppercase tracking-wider text-white/70">Years</div>
+              </div>
+              <div className="border-x border-white/15 px-2">
+                <div className="text-xl font-semibold text-brand-gold">120+</div>
+                <div className="text-[10px] uppercase tracking-wider text-white/70">Engineers</div>
+              </div>
+              <div>
+                <div className="text-xl font-semibold text-brand-gold">100%</div>
+                <div className="text-[10px] uppercase tracking-wider text-white/70">QA Passed</div>
+              </div>
+            </div>
           </div>
-          <div className="absolute -bottom-4 -left-4 rounded-2xl border border-white/10 bg-brand-gold p-5 text-brand-gold-foreground shadow-gold">
-            <div className="text-2xl font-semibold">Zero-Compromise</div>
-            <div className="text-sm">Quality-first construction policy</div>
+
+          {/* Floating gold badge */}
+          <div className="absolute -bottom-6 -left-4 md:-left-8 rounded-2xl bg-gradient-to-br from-brand-gold to-[#c68f10] p-5 text-brand-gold-foreground shadow-gold ring-1 ring-white/20">
+            <div className="text-2xl font-semibold leading-tight">Zero-Compromise</div>
+            <div className="text-sm opacity-90">Quality-first construction policy</div>
           </div>
         </div>
       </div>
