@@ -30,11 +30,19 @@ export function FormPageHero({
         alt=""
         aria-hidden
         loading="eager"
-        className="absolute inset-0 h-full w-full object-cover opacity-45"
+        className="absolute inset-0 h-full w-full object-cover"
       />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-brand-navy via-brand-navy/85 to-brand-navy/40" />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-brand-navy/40 via-transparent to-brand-navy/70" />
-      {/* subtle gold glow accent */}
+      {/* Home-hero style layered overlays + glass */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-brand-navy/70 via-brand-navy/35 to-brand-navy/85" />
+      <div className="pointer-events-none absolute inset-0 bg-brand-navy/30 backdrop-blur-[2px]" />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(70% 65% at 50% 55%, transparent 0%, oklch(0.12 0.05 265 / 0.55) 100%)",
+        }}
+      />
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 opacity-40"

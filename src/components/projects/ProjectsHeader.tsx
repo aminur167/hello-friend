@@ -18,12 +18,23 @@ export function ProjectsHeader({
     <section className="relative overflow-hidden bg-hero-gradient text-white">
       {image && (
         <div
-          className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-45"
+          className="pointer-events-none absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${image})` }}
         />
       )}
       {image && (
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-brand-navy/80 via-brand-navy/70 to-brand-navy/85" />
+        <>
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-brand-navy/70 via-brand-navy/35 to-brand-navy/85" />
+          <div className="pointer-events-none absolute inset-0 bg-brand-navy/30 backdrop-blur-[2px]" />
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0"
+            style={{
+              background:
+                "radial-gradient(70% 65% at 50% 55%, transparent 0%, oklch(0.12 0.05 265 / 0.55) 100%)",
+            }}
+          />
+        </>
       )}
       <div
         className="pointer-events-none absolute inset-0 opacity-40"
