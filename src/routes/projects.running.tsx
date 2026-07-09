@@ -21,9 +21,9 @@ function RunningPage() {
   return (
     <SiteLayout>
       <ProjectsHeader
-        kicker="Running Projects"
-        title="Being built with care right now"
-        subtitle="Every ongoing project — with live construction progress, handover timelines and unit availability."
+        kicker="চলমান প্রকল্পসমূহ"
+        title="যত্নে গড়ে উঠছে আপনার স্বপ্নের ঠিকানা"
+        subtitle="প্রতিটি চলমান প্রকল্পের সরাসরি নির্মাণ অগ্রগতি, হ্যান্ডওভার সময়সূচি ও ইউনিট প্রাপ্যতা — এক পলকে।"
         image={runningHero.url}
       />
       <section className="container-page pb-24">
