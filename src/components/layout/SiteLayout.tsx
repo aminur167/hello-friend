@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
 import { AnnouncementBar } from "./AnnouncementBar";
+import { WhatsAppFab } from "./WhatsAppFab";
 
 /**
  * SiteLayout — shared shell for all public marketing pages.
@@ -22,6 +23,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
         {children}
       </main>
       <Footer />
+      <WhatsAppFab />
     </div>
   );
 }
