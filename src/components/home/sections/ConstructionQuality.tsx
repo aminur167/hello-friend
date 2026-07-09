@@ -35,7 +35,7 @@ export function ConstructionQuality() {
           </div>
         </div>
         <div className="relative">
-          <div className="relative overflow-hidden rounded-3xl aspect-square">
+          <div className="relative overflow-hidden rounded-3xl aspect-[4/5]">
             <img src={premiumImages.construction} alt="Chartered engineer reviewing construction plans on site" loading="lazy" className="h-full w-full object-cover" />
           </div>
           <div className="absolute -bottom-4 -left-4 rounded-2xl border border-white/10 bg-brand-gold p-5 text-brand-gold-foreground shadow-gold">
