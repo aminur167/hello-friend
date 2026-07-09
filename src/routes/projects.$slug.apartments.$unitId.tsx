@@ -4,6 +4,7 @@ import { SiteLayout } from "@/components/layout/SiteLayout";
 import { ProjectVisual } from "@/components/projects/ProjectVisual";
 import { EMICalculator } from "@/components/projects/EMICalculator";
 import { BookVisitForm } from "@/components/projects/BookVisitForm";
+import type { Project, Unit } from "@/lib/projects-data";
 import { formatBDT, getProject } from "@/lib/projects-data";
 
 export const Route = createFileRoute("/projects/$slug/apartments/$unitId")({
@@ -87,8 +88,10 @@ export const Route = createFileRoute("/projects/$slug/apartments/$unitId")({
 });
 
 function ApartmentDetail() {
-  const { project, unit } = Route.useLoaderData();
-  const otherUnits = project.units.filter((u) => u.id !== unit.id);
+  const data = Route.useLoaderData();
+  const project = data.project as Project;
+  const unit = data.unit as Unit;
+  const otherUnits = project.units.filter((u: Unit) => u.id !== unit.id);
 
   return (
     <SiteLayout>
@@ -195,7 +198,7 @@ function ApartmentDetail() {
               Other Apartments in {project.name}
             </h2>
             <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-              {otherUnits.map((u) => (
+              {otherUnits.map((u: Unit) => (
                 <Link
                   key={u.id}
                   to="/projects/$slug/apartments/$unitId"

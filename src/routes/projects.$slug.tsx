@@ -6,6 +6,7 @@ import { ProjectVisual } from "@/components/projects/ProjectVisual";
 import { EMICalculator } from "@/components/projects/EMICalculator";
 import { BookVisitForm } from "@/components/projects/BookVisitForm";
 import { ProjectCard } from "@/components/projects/ProjectCard";
+import type { Project, Unit, Amenity, NearbyPlace } from "@/lib/projects-data";
 import { formatBDT, getProject, projects } from "@/lib/projects-data";
 
 export const Route = createFileRoute("/projects/$slug")({
@@ -93,8 +94,8 @@ export const Route = createFileRoute("/projects/$slug")({
 });
 
 function ProjectDetail() {
-  const { project } = Route.useLoaderData();
-  const p = project;
+  const data = Route.useLoaderData();
+  const p = data.project as Project;
   const related = projects.filter((x) => x.slug !== p.slug && x.type === p.type).slice(0, 3);
 
   return (
@@ -166,7 +167,7 @@ function ProjectDetail() {
               <h2 className="text-2xl font-semibold text-foreground">Apartment & Floor Plans</h2>
               <p className="mt-1 text-muted-foreground">Choose the layout that fits your family.</p>
               <div className="mt-6 grid gap-4 md:grid-cols-2">
-                {p.units.map((u) => (
+              {p.units.map((u: Unit) => (
                   <article key={u.id} className="group overflow-hidden rounded-2xl border border-border bg-card shadow-card-soft transition-all hover:shadow-elegant">
                     <ProjectVisual variant="plan" hue={u.floorPlanHue} className="aspect-[4/3]" label={`${u.bedrooms} BR · ${u.sizeSqft} sqft`} />
                     <div className="p-5">
@@ -201,7 +202,7 @@ function ProjectDetail() {
               <Sparkles className="h-5 w-5 text-brand-gold" /> Amenities
             </h2>
             <div className="mt-6 grid grid-cols-2 gap-3 md:grid-cols-3">
-              {p.amenities.map((a) => (
+              {p.amenities.map((a: Amenity) => (
                 <div key={a} className="flex items-center gap-2 rounded-xl border border-border bg-card p-4">
                   <CheckCircle2 className="h-5 w-5 shrink-0 text-brand-green" />
                   <span className="text-sm font-medium text-foreground">{a}</span>
@@ -223,7 +224,7 @@ function ProjectDetail() {
                   </tr>
                 </thead>
                 <tbody>
-                  {p.nearby.map((n) => (
+                  {p.nearby.map((n: NearbyPlace) => (
                     <tr key={n.name} className="border-t border-border">
                       <td className="px-4 py-3 font-medium text-foreground">{n.name}</td>
                       <td className="px-4 py-3 text-muted-foreground">{n.category}</td>

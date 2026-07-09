@@ -13,6 +13,8 @@ import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProjectsRunningRouteImport } from './routes/projects.running'
 import { Route as ProjectsCompletedRouteImport } from './routes/projects.completed'
+import { Route as ProjectsSlugRouteImport } from './routes/projects.$slug'
+import { Route as ProjectsSlugApartmentsUnitIdRouteImport } from './routes/projects.$slug.apartments.$unitId'
 
 const ProjectsRoute = ProjectsRouteImport.update({
   id: '/projects',
@@ -34,37 +36,68 @@ const ProjectsCompletedRoute = ProjectsCompletedRouteImport.update({
   path: '/completed',
   getParentRoute: () => ProjectsRoute,
 } as any)
+const ProjectsSlugRoute = ProjectsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => ProjectsRoute,
+} as any)
+const ProjectsSlugApartmentsUnitIdRoute =
+  ProjectsSlugApartmentsUnitIdRouteImport.update({
+    id: '/apartments/$unitId',
+    path: '/apartments/$unitId',
+    getParentRoute: () => ProjectsSlugRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/projects': typeof ProjectsRouteWithChildren
+  '/projects/$slug': typeof ProjectsSlugRouteWithChildren
   '/projects/completed': typeof ProjectsCompletedRoute
   '/projects/running': typeof ProjectsRunningRoute
+  '/projects/$slug/apartments/$unitId': typeof ProjectsSlugApartmentsUnitIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/projects': typeof ProjectsRouteWithChildren
+  '/projects/$slug': typeof ProjectsSlugRouteWithChildren
   '/projects/completed': typeof ProjectsCompletedRoute
   '/projects/running': typeof ProjectsRunningRoute
+  '/projects/$slug/apartments/$unitId': typeof ProjectsSlugApartmentsUnitIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/projects': typeof ProjectsRouteWithChildren
+  '/projects/$slug': typeof ProjectsSlugRouteWithChildren
   '/projects/completed': typeof ProjectsCompletedRoute
   '/projects/running': typeof ProjectsRunningRoute
+  '/projects/$slug/apartments/$unitId': typeof ProjectsSlugApartmentsUnitIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/projects' | '/projects/completed' | '/projects/running'
+  fullPaths:
+    | '/'
+    | '/projects'
+    | '/projects/$slug'
+    | '/projects/completed'
+    | '/projects/running'
+    | '/projects/$slug/apartments/$unitId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/projects' | '/projects/completed' | '/projects/running'
+  to:
+    | '/'
+    | '/projects'
+    | '/projects/$slug'
+    | '/projects/completed'
+    | '/projects/running'
+    | '/projects/$slug/apartments/$unitId'
   id:
     | '__root__'
     | '/'
     | '/projects'
+    | '/projects/$slug'
     | '/projects/completed'
     | '/projects/running'
+    | '/projects/$slug/apartments/$unitId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -102,15 +135,43 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProjectsCompletedRouteImport
       parentRoute: typeof ProjectsRoute
     }
+    '/projects/$slug': {
+      id: '/projects/$slug'
+      path: '/$slug'
+      fullPath: '/projects/$slug'
+      preLoaderRoute: typeof ProjectsSlugRouteImport
+      parentRoute: typeof ProjectsRoute
+    }
+    '/projects/$slug/apartments/$unitId': {
+      id: '/projects/$slug/apartments/$unitId'
+      path: '/apartments/$unitId'
+      fullPath: '/projects/$slug/apartments/$unitId'
+      preLoaderRoute: typeof ProjectsSlugApartmentsUnitIdRouteImport
+      parentRoute: typeof ProjectsSlugRoute
+    }
   }
 }
 
+interface ProjectsSlugRouteChildren {
+  ProjectsSlugApartmentsUnitIdRoute: typeof ProjectsSlugApartmentsUnitIdRoute
+}
+
+const ProjectsSlugRouteChildren: ProjectsSlugRouteChildren = {
+  ProjectsSlugApartmentsUnitIdRoute: ProjectsSlugApartmentsUnitIdRoute,
+}
+
+const ProjectsSlugRouteWithChildren = ProjectsSlugRoute._addFileChildren(
+  ProjectsSlugRouteChildren,
+)
+
 interface ProjectsRouteChildren {
+  ProjectsSlugRoute: typeof ProjectsSlugRouteWithChildren
   ProjectsCompletedRoute: typeof ProjectsCompletedRoute
   ProjectsRunningRoute: typeof ProjectsRunningRoute
 }
 
 const ProjectsRouteChildren: ProjectsRouteChildren = {
+  ProjectsSlugRoute: ProjectsSlugRouteWithChildren,
   ProjectsCompletedRoute: ProjectsCompletedRoute,
   ProjectsRunningRoute: ProjectsRunningRoute,
 }
